@@ -66,7 +66,7 @@ const Login = () => {
   // }
 
   return (
-    <div className="flex flex-col justify-between items-center h-screen p-10 bg-[#EBEDF0]">
+    <div className="flex flex-col justify-between items-center h-screen p-10 bg-[#0d1726]">
       <Title order={2} mb={24}>
         TokenX
       </Title>
@@ -115,7 +115,9 @@ const Login = () => {
         </form>
       </div>
 
-      <Text mt={24}>© 2021 TokenX. All rights reserved.</Text>
+      <Text mt={24} style={{ color: 'green' }}>
+        © 2021 TokenX. All rights reserved.
+      </Text>
     </div>
   )
 }
