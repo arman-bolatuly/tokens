@@ -1,5 +1,5 @@
 // import { useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // import { useForm } from 'react-hook-form'
 // import { useMutation, useQuery } from '@tanstack/react-query'
 import { Text, Title, TextInput, Button } from '@mantine/core'
@@ -10,7 +10,7 @@ import { Text, Title, TextInput, Button } from '@mantine/core'
 // import { LogoIcon } from '../../assets/icons'
 
 const Login = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   // const { isAuth } = useSnapshot(store.auth)
 
@@ -68,7 +68,7 @@ const Login = () => {
   return (
     <div className="flex flex-col justify-between items-center h-screen p-10 bg-[#EBEDF0]">
       <Title order={2} mb={24}>
-        Odyssey Data
+        TokenX
       </Title>
 
       <div className="flex flex-col space-y-6 w-[400px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
@@ -76,7 +76,7 @@ const Login = () => {
           {/* <LogoIcon /> */}
 
           <span className="text-[19px] font-bold leading-[22px] tracking-[-0.32px] ml-1">
-            Odyssey Data
+            TokenX
           </span>
         </div>
 
@@ -109,15 +109,13 @@ const Login = () => {
 
           <Button type="submit">Войти</Button>
 
-          <Button variant="light">Войти через Odyssey</Button>
+          <Button variant="light" onClick={() => navigate('/registration')}>
+            Зарегистрироваться
+          </Button>
         </form>
-
-        <Text className="bodyNormal text-[#9DA5B2] text-center px-4">
-          Если вы авторизованы в других продуктах Odyssey нажмите на кнопку выше
-        </Text>
       </div>
 
-      <Text mt={24}>© 2021 Odyssey Data. All rights reserved.</Text>
+      <Text mt={24}>© 2021 TokenX. All rights reserved.</Text>
     </div>
   )
 }

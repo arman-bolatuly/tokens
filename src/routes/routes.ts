@@ -4,6 +4,7 @@ import { privateRoutes } from './privateRoutes'
 import App from '../App'
 import ErrorPage from '../pages/Error'
 import Login from '../pages/Login'
+import Registration from '../pages/Registration'
 
 export const router = createBrowserRouter([
   {
@@ -15,5 +16,9 @@ export const router = createBrowserRouter([
   {
     path: '/login',
     Component: Login,
+  },
+  {
+    path: '/registration',
+    Component: Registration,
   },
 ])
