@@ -108,8 +108,12 @@ const Layouts = () => {
       <AppShell.Main
         bg={'#0D1D29'}
         // className="bg-gradient-to-b from-[#0D1D29] via-[#0D1D29] to-[#0D1D29]"
+        // p={8}
+        // m={16}
       >
-        <Outlet />
+        <div className="p-4 overflow-auto">
+          <Outlet />
+        </div>
       </AppShell.Main>
     </AppShell>
   )

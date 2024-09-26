@@ -1,5 +1,17 @@
 import React from 'react'
-import { IconSettings, IconCoinTaka } from '@tabler/icons-react'
+import {
+  IconCoinTaka,
+  IconUserCog,
+  IconUserDollar,
+  IconUserBitcoin,
+  IconSettingsHeart,
+  IconSettingsDollar,
+  IconFileDollar,
+  IconReportAnalytics,
+  IconFileInvoice,
+  IconUsers,
+  IconArrowsExchange2,
+} from '@tabler/icons-react'
 
 const AssetsManagement = [
   {
@@ -9,12 +21,12 @@ const AssetsManagement = [
   },
   {
     label: 'All STO Funding Assets',
-    icon: IconSettings,
+    icon: IconFileDollar,
     link: '/all-sto-funding-assets',
   },
   {
     label: 'Assets Reports',
-    icon: IconSettings,
+    icon: IconReportAnalytics,
     link: '/assets-reports',
   },
 ]
@@ -22,12 +34,12 @@ const AssetsManagement = [
 const TradingExchanges = [
   {
     label: 'OTC Traders',
-    icon: IconSettings,
+    icon: IconUsers,
     link: '/OTC-traders',
   },
   {
     label: 'Currency Exchange',
-    icon: IconSettings,
+    icon: IconArrowsExchange2,
     link: '/currency-exchange',
   },
 ]
@@ -35,12 +47,12 @@ const TradingExchanges = [
 const InvestorsFinancials = [
   {
     label: 'Investors',
-    icon: IconSettings,
+    icon: IconUserBitcoin,
     link: '/investors',
   },
   {
     label: 'Statements',
-    icon: IconSettings,
+    icon: IconFileInvoice,
     link: '/statements',
   },
 ]
@@ -48,22 +60,22 @@ const InvestorsFinancials = [
 const Administration = [
   {
     label: 'Admin Users/Issuers',
-    icon: IconSettings,
+    icon: IconUserCog,
     link: '/adminUsers-issuers',
   },
   {
     label: 'Admin Banks',
-    icon: IconSettings,
+    icon: IconUserDollar,
     link: '/admin-banks',
   },
   {
     label: 'KYC Settings',
-    icon: IconSettings,
+    icon: IconSettingsHeart,
     link: '/kyc-settings',
   },
   {
     label: 'OTC Settings',
-    icon: IconSettings,
+    icon: IconSettingsDollar,
     link: '/otc-settings',
   },
 ]
@@ -98,13 +110,7 @@ const MenuItem = (item: any) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <item.icon />{' '}
-      <span
-        className="ml-3 text-[#121F33]"
-        style={{
-          color: isHovered ? '#087f5b' : '#ffffff',
-          transition: 'all 0.4s ease-in-out',
-        }}
-      >
+      <span className="ml-3" style={{ transition: 'all 0.4s ease-in-out' }}>
         {item.label}
       </span>
     </NavLink>
