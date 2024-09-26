@@ -2,7 +2,7 @@
 // import { useNavigate } from 'react-router-dom'
 // import { useForm } from 'react-hook-form'
 // import { useMutation, useQuery } from '@tanstack/react-query'
-import { Text, Title, TextInput, Button } from '@mantine/core'
+import { Text, Title, TextInput, Button, Select, Anchor } from '@mantine/core'
 // import { useSnapshot } from 'valtio'
 
 // import { getAccount, login } from '../../apiService/auth'
@@ -67,21 +67,24 @@ const Registration = () => {
 
   return (
     <div className="flex flex-col justify-between items-center h-screen p-10 bg-[#EBEDF0]">
-      <Title order={2} mb={24}>
-        TokenX
-      </Title>
+      
+      <header className="flex justify-between w-full" style={{ marginTop: '-16px' }}>
+        <Title order={2} mb={16} className="ml-4">
+          TokenX
+        </Title>
+        <Anchor
+          href=""
+          className="mr-4 self-center border border-gray-400 px-4 py-2 rounded-md hover:bg-blue-100"
+          style={{ textDecoration: 'none', color: 'black' }}
+           >
+          Войти
+        </Anchor>
+      </header>
 
       <div className="flex flex-col space-y-6 w-[400px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
-        <div className="flex items-center mx-auto">
-          {/* <LogoIcon /> */}
-
-          <span className="text-[19px] font-bold leading-[22px] tracking-[-0.32px] ml-1">
-            TokenX
-          </span>
-        </div>
 
         <Title order={5} className="text-center">
-          Вход в аккаунт
+        Регистрация
         </Title>
 
         <form
@@ -98,18 +101,38 @@ const Registration = () => {
           />
 
           <TextInput
+            label="Имя пользователя"
+            // {...register('password', {
+            //   required: 'Пароль не должен быть пустым',
+            // })}
+            placeholder="Имя пользователя"
+          />
+
+          <TextInput
             label="Пароль"
             // {...register('password', {
             //   required: 'Пароль не должен быть пустым',
             // })}
-            placeholder="Пароль"
-            type="password"
+            placeholder="Создать пароль"
+            type="Password"
             // error={errors?.password && `${errors?.password?.message}`}
           />
 
-          <Button type="submit">Войти</Button>
+          <Select
+            label="Страна проживания"
+            placeholder="Выбрать"
+            data={[
+              { value: 'usa', label: 'United States' },
+              { value: 'uk', label: 'United Kingdom' },
+              { value: 'france', label: 'France' },
+              { value: 'germany', label: 'Germany' },
+              { value: 'russia', label: 'Russia' },
+              { value: 'china', label: 'China' },
+            ]}
+          />
 
-          <Button variant="light">Зарегистрироваться</Button>
+          <Button type="submit">Регистрация</Button>
+
         </form>
       </div>
 
