@@ -1,8 +1,8 @@
 // import { useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // import { useForm } from 'react-hook-form'
 // import { useMutation, useQuery } from '@tanstack/react-query'
-import { Text, Title, TextInput, Button, Select, Anchor } from '@mantine/core'
+import { Text, Title, TextInput, Button, Select } from '@mantine/core'
 // import { useSnapshot } from 'valtio'
 
 // import { getAccount, login } from '../../apiService/auth'
@@ -10,7 +10,7 @@ import { Text, Title, TextInput, Button, Select, Anchor } from '@mantine/core'
 // import { LogoIcon } from '../../assets/icons'
 
 const Registration = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   // const { isAuth } = useSnapshot(store.auth)
 
@@ -66,25 +66,20 @@ const Registration = () => {
   // }
 
   return (
-    <div className="flex flex-col justify-between items-center h-screen p-10 bg-[#EBEDF0]">
-      
-      <header className="flex justify-between w-full" style={{ marginTop: '-16px' }}>
-        <Title order={2} mb={16} className="ml-4">
+    <div className="flex flex-col justify-between items-center h-screen bg-[#0D1D29]">
+      <header className="flex justify-between items-center w-full px-6 pt-4 border-b-[1px] border-[#087f5b]">
+        <Title order={2} className="text-[#FFFFFF]">
           TokenX
         </Title>
-        <Anchor
-          href=""
-          className="mr-4 self-center border border-gray-400 px-4 py-2 rounded-md hover:bg-blue-100"
-          style={{ textDecoration: 'none', color: 'black' }}
-           >
+
+        <Button variant="light" onClick={() => navigate('/login')}>
           Войти
-        </Anchor>
+        </Button>
       </header>
 
       <div className="flex flex-col space-y-6 w-[400px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
-
         <Title order={5} className="text-center">
-        Регистрация
+          Регистрация
         </Title>
 
         <form
@@ -132,11 +127,12 @@ const Registration = () => {
           />
 
           <Button type="submit">Регистрация</Button>
-
         </form>
       </div>
 
-      <Text mt={24}>© 2021 TokenX. All rights reserved.</Text>
+      <Text mt={24} c="#087f5b" mb={16}>
+        © 2021 TokenX. All rights reserved.
+      </Text>
     </div>
   )
 }
