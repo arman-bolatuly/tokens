@@ -1,6 +1,7 @@
 // import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Text, Title, TextInput, Button } from '@mantine/core'
+import { Player } from '@lottiefiles/react-lottie-player'
 // import { useForm } from 'react-hook-form'
 // import { useMutation, useQuery } from '@tanstack/react-query'
 // import { useSnapshot } from 'valtio'
@@ -67,7 +68,16 @@ const Login = () => {
 
   return (
     <div className="flex flex-col justify-between items-center h-screen p-10 bg-[#0d1726]">
-      <Title order={2} mb={24}>
+      <div className="absolute right-20 top-[35%]">
+        <Player
+          autoplay
+          loop
+          src="https://lottie.host/c7c55151-5939-4dba-b5f5-ad8e14d34129/kPFycC4fTK.json"
+          style={{ height: '300px', width: '300px' }}
+        />
+      </div>
+
+      <Title order={2} mb={24} c="#FFFFFF">
         TokenX
       </Title>
 
@@ -115,8 +125,8 @@ const Login = () => {
         </form>
       </div>
 
-      <Text mt={24} style={{ color: 'green' }}>
-        © 2021 TokenX. All rights reserved.
+      <Text mt={24} c="green">
+        © 2024 TokenX. All rights reserved.
       </Text>
     </div>
   )

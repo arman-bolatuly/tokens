@@ -1,8 +1,9 @@
 // import { useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // import { useForm } from 'react-hook-form'
 // import { useMutation, useQuery } from '@tanstack/react-query'
-import { Text, Title, TextInput, Button, Select, Anchor } from '@mantine/core'
+import { Text, Title, TextInput, Button, Select } from '@mantine/core'
+import { Player } from '@lottiefiles/react-lottie-player'
 // import { useSnapshot } from 'valtio'
 
 // import { getAccount, login } from '../../apiService/auth'
@@ -10,7 +11,7 @@ import { Text, Title, TextInput, Button, Select, Anchor } from '@mantine/core'
 // import { LogoIcon } from '../../assets/icons'
 
 const Registration = () => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   // const { isAuth } = useSnapshot(store.auth)
 
@@ -66,25 +67,23 @@ const Registration = () => {
   // }
 
   return (
-    <div className="flex flex-col justify-between items-center h-screen p-10 bg-[#EBEDF0]">
-      
-      <header className="flex justify-between w-full" style={{ marginTop: '-16px' }}>
-        <Title order={2} mb={16} className="ml-4">
-          TokenX
-        </Title>
-        <Anchor
-          href="/login"
-          className="mr-4 self-center border border-gray-400 px-4 py-2 rounded-md hover:bg-blue-100"
-          style={{ textDecoration: 'none', color: 'black' }}
-           >
-          Войти
-        </Anchor>
-      </header>
+    <div className="flex flex-col justify-between items-center h-screen p-10 bg-[#0d1726]">
+      <div className="absolute right-20 top-[25%]">
+        <Player
+          autoplay
+          loop
+          src="https:lottie.host/56aa837c-62ce-47c8-adbc-fa1d1b1fec77/r9CS33sthi.json"
+          style={{ height: '500px', width: '500px' }}
+        />
+      </div>
+
+      <Title order={2} mb={16} c="#FFFFFF">
+        TokenX
+      </Title>
 
       <div className="flex flex-col space-y-6 w-[400px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
-
         <Title order={5} className="text-center">
-        Регистрация
+          Регистрация
         </Title>
 
         <form
@@ -133,10 +132,22 @@ const Registration = () => {
 
           <Button type="submit">Регистрация</Button>
 
+          <div className="flex items-center">
+            <Text className="bodyDemibold mr-4">Already have an account?</Text>
+
+            <Text
+              onClick={() => navigate('/login')}
+              className="hover:text-[#1E86FF] bodyDemibold cursor-pointer"
+            >
+              Войти
+            </Text>
+          </div>
         </form>
       </div>
 
-      <Text mt={24}>© 2021 TokenX. All rights reserved.</Text>
+      <Text mt={24} c="green">
+        © 2021 TokenX. All rights reserved.
+      </Text>
     </div>
   )
 }
