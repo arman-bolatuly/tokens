@@ -61,7 +61,7 @@ const Administration = [
   {
     label: 'Admin Users/Issuers',
     icon: IconUserCog,
-    link: '/adminUsers-issuers',
+    link: '/admins-issuers',
   },
   {
     label: 'Admin Banks',

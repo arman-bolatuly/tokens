@@ -82,7 +82,7 @@ const Registration = () => {
       </Title>
 
       <div className="flex flex-col space-y-6 w-[400px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
-        <Title order={5} className="text-center">
+        <Title order={4} className="text-center">
           Регистрация
         </Title>
 
@@ -146,7 +146,7 @@ const Registration = () => {
       </div>
 
       <Text mt={24} c="green">
-        © 2021 TokenX. All rights reserved.
+        © 2024 TokenX. All rights reserved.
       </Text>
     </div>
   )

@@ -4,6 +4,7 @@ import Home from '../pages/Home'
 import Tokens from '../pages/Tokens'
 import Profile from '../pages/Profile'
 import Investors from '../pages/Investors'
+import AdminsIssuers from '../pages/AdminsIssuers'
 
 export const privateRoutes: Array<RouteObject> = [
   {
@@ -21,5 +22,9 @@ export const privateRoutes: Array<RouteObject> = [
   {
     path: '/investors',
     Component: Investors,
+  },
+  {
+    path: '/admins-issuers',
+    Component: AdminsIssuers,
   },
 ]

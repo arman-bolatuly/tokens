@@ -68,12 +68,12 @@ const Login = () => {
 
   return (
     <div className="flex flex-col justify-between items-center h-screen p-10 bg-[#0d1726]">
-      <div className="absolute right-20 top-[35%]">
+      <div className="absolute right-20 top-[25%]">
         <Player
           autoplay
           loop
           src="https://lottie.host/c7c55151-5939-4dba-b5f5-ad8e14d34129/kPFycC4fTK.json"
-          style={{ height: '300px', width: '300px' }}
+          style={{ height: '500px', width: '500px' }}
         />
       </div>
 
@@ -82,15 +82,7 @@ const Login = () => {
       </Title>
 
       <div className="flex flex-col space-y-6 w-[400px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
-        <div className="flex items-center mx-auto">
-          {/* <LogoIcon /> */}
-
-          <span className="text-[19px] font-bold leading-[22px] tracking-[-0.32px] ml-1">
-            TokenX
-          </span>
-        </div>
-
-        <Title order={5} className="text-center">
+        <Title order={4} className="text-center">
           Вход в аккаунт
         </Title>
 
