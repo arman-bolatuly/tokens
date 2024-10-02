@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react'
 import { Title, Stack, Table, Input, Button, Pagination } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'

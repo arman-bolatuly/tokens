@@ -20,6 +20,11 @@ const AssetsManagement = [
     link: '/tokens',
   },
   {
+    label: 'Cases',
+    icon: IconFileDollar,
+    link: '/cases',
+  },
+  {
     label: 'All STO Funding Assets',
     icon: IconFileDollar,
     link: '/all-sto-funding-assets',
