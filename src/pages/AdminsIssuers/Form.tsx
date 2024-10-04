@@ -14,6 +14,7 @@ interface FormProps {
 }
 
 const AdminForm: FC<FormProps> = ({ data, opened, close }) => {
+  console.log('data: ', data)
   return (
     <Drawer
       opened={opened}

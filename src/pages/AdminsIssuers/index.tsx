@@ -92,6 +92,9 @@ const AdminsIssuers = () => {
   const [opened, { open, close }] = useDisclosure(false)
 
   const [selectedPerson, setSelectedPerson] = useState<any>(null)
+
+  console.log('selectedPerson: ', selectedPerson)
+
   return (
     <Stack align="stretch" justify="center" gap="xl" c={'#FFFFFF'}>
       <Title order={3}>Admin users and Issuers</Title>
@@ -150,7 +153,7 @@ const AdminsIssuers = () => {
 
       <Pagination total={10} ml={'auto'} />
 
-      {<AdminForm data={selectedPerson} opened={opened} close={close} />}
+      <AdminForm data={selectedPerson} opened={opened} close={close} />
     </Stack>
   )
 }
