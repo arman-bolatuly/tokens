@@ -7,7 +7,7 @@ import Investors from '../pages/Investors'
 import AdminsIssuers from '../pages/AdminsIssuers'
 import AdminBanks from '../pages/AdminBank'
 import Cases from '../pages/Cases'
-
+import IssuerRegistration from '../pages/IssuerRegistration'
 
 export const privateRoutes: Array<RouteObject> = [
   {
@@ -33,6 +33,10 @@ export const privateRoutes: Array<RouteObject> = [
   {
     path: '/admins-issuers',
     Component: AdminsIssuers,
+  },
+  {
+    path: '/issuer-registration',
+    Component: IssuerRegistration,
   },
   {
     path: '/admin-banks',

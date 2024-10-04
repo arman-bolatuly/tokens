@@ -34,6 +34,11 @@ const AssetsManagement = [
     icon: IconReportAnalytics,
     link: '/assets-reports',
   },
+  {
+    label: 'IssuerRegistration',
+    icon: IconUserCog,
+    link: '/issuer-registration',
+  },
 ]
 
 const TradingExchanges = [
@@ -60,6 +65,7 @@ const InvestorsFinancials = [
     icon: IconFileInvoice,
     link: '/statements',
   },
+ 
 ]
 
 const Administration = [
