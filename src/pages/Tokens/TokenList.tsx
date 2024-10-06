@@ -264,7 +264,7 @@ const TokenList = () => {
                   </div>
                 </Table.Td>
 
-                <Table.Td className="text-end">
+                <Table.Td>
                   <ActionIcon variant="transparent">
                     <IconInfoCircle />
                   </ActionIcon>
