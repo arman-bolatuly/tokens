@@ -8,6 +8,7 @@ import AdminsIssuers from '../pages/AdminsIssuers'
 import AdminBanks from '../pages/AdminBank'
 import Cases from '../pages/Cases'
 import IssuerRegistration from '../pages/IssuerRegistration'
+import TokenList from '../pages/Tokens/TokenList'
 
 export const privateRoutes: Array<RouteObject> = [
   {
@@ -21,6 +22,10 @@ export const privateRoutes: Array<RouteObject> = [
   {
     path: '/tokens',
     Component: Tokens,
+  },
+  {
+    path: 'tokens/cases/:caseId',
+    Component: TokenList,
   },
   {
     path: '/cases',
