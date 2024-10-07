@@ -9,8 +9,9 @@ import {
   Menu,
   rem,
   UnstyledButton,
+  SegmentedControl,
 } from '@mantine/core'
-import { forwardRef } from 'react'
+import { forwardRef, useState } from 'react'
 import { useDisclosure } from '@mantine/hooks'
 import { useNavigate, Outlet } from 'react-router-dom'
 import {
@@ -25,6 +26,7 @@ import {
 } from '@tabler/icons-react'
 
 import SideMenu from './SideMenu'
+import UserSideMenu from './UserSideMenu'
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   image: string
@@ -66,6 +68,8 @@ const UserButton = forwardRef<HTMLButtonElement, UserButtonProps>(
 const Layouts = () => {
   const navigate = useNavigate()
 
+  const [value, setValue] = useState('user')
+
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure()
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true)
 
@@ -106,12 +110,22 @@ const Layouts = () => {
             order={3}
             c="#FFFFFF"
             className="cursor-pointer text-[#FFFFFF]"
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/home')}
           >
             TokenX
           </Title>
 
           <div className="flex items-center space-x-2 ml-auto">
+            <SegmentedControl
+              color="teal"
+              value={value}
+              onChange={setValue}
+              data={[
+                { label: 'Admin', value: 'admin' },
+                { label: 'User', value: 'user' },
+              ]}
+            />
+
             <ActionIcon variant="transparent">
               <IconBell color="#FFFFFF" />
             </ActionIcon>
@@ -218,7 +232,7 @@ const Layouts = () => {
             </Text>
           </div>
 
-          <SideMenu />
+          {value === 'admin' ? <SideMenu /> : <UserSideMenu />}
         </AppShell.Navbar>
       )}
 
