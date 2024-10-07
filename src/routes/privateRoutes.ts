@@ -1,6 +1,6 @@
 import type { RouteObject } from 'react-router-dom'
 
-import Home from '../pages/Home'
+// import Home from '../pages/Home'
 import Tokens from '../pages/Tokens'
 import Profile from '../pages/Profile'
 import Investors from '../pages/Investors'
@@ -11,10 +11,10 @@ import IssuerRegistration from '../pages/IssuerRegistration'
 import TokenList from '../pages/Tokens/TokenList'
 
 export const privateRoutes: Array<RouteObject> = [
-  {
-    path: '/',
-    Component: Home,
-  },
+  // {
+  //   path: '/',
+  //   Component: Home,
+  // },
   {
     path: '/profile',
     Component: Profile,
