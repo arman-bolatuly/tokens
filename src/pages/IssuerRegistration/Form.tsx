@@ -1,18 +1,18 @@
-import { Drawer, SimpleGrid, Stack, TextInput } from '@mantine/core'
-import { FC } from 'react'
+import { Drawer, SimpleGrid, Stack, TextInput } from '@mantine/core';
+import { FC } from 'react';
 
 interface FormProps {
-  opened: boolean
-  close: () => void
+  opened: boolean;
+  close: () => void;
   data: {
-    companyname: string 
-    personalname: string 
-    id: number
-    email: string
-    code: string
-    number: number
-    pasword: string
-  }
+    companyname?: string;
+    personalname?: string;
+    id?: number;
+    email?: string;
+    code?: string;
+    number?: number;
+    pasword?: string;
+  };
 }
 
 const AdminForm: FC<FormProps> = ({ data, opened, close }) => {
@@ -26,40 +26,39 @@ const AdminForm: FC<FormProps> = ({ data, opened, close }) => {
       <Stack align="stretch" justify="center" gap="xl" c={'#FFFFFF'}>
         <SimpleGrid cols={1} spacing="lg" verticalSpacing="lg">
           <TextInput
-            value={data?.companyname}
+            value={data?.companyname || ''}
             label="Company Name"
-            placeholder=""
+            placeholder="Company Name"
           />
           <TextInput
-            value={data?.personalname}
+            value={data?.personalname || ''}
             label="Personal Name"
-            placeholder=""
+            placeholder="Personal Name"
           />
           <TextInput
-            value={data?.email}
+            value={data?.email || ''}
             label="Email"
-            placeholder=""
+            placeholder="Email"
           />
           <TextInput
-            value={data?.number}
-            label="Phone Nomber"
-            placeholder=""
+            value={data?.number || ''}
+            label="Phone Number"
+            placeholder="Phone Number"
           />
           <TextInput
-            value={data?.code}
-            label="Issuer code"
-            placeholder=""
+            value={data?.code || ''}
+            label="Issuer Code"
+            placeholder="Issuer Code"
           />
           <TextInput
-            value={data?.pasword}
-            label="Pasword"
-            placeholder=""
+            value={data?.pasword || ''}
+            label="Password"
+            placeholder="Password"
           />
-          
         </SimpleGrid>
       </Stack>
     </Drawer>
-  )
-}
+  );
+};
 
-export default AdminForm
+export default AdminForm;

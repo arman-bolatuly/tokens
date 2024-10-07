@@ -79,9 +79,9 @@ const data = [
 ]
 
 const AdminsIssuers = () => {
-  const [opened, { open, close }] = useDisclosure(false)
+  const [opened, { open, close }] = useDisclosure(false);
+  const [selectedPerson, setSelectedPerson] = useState<any>(null);
 
-  const [selectedPerson, setSelectedPerson] = useState<any>(null)
   return (
     <Stack align="stretch" justify="center" gap="xl" c={'#FFFFFF'}>
       <Title order={3}>Issuers Registration</Title>
@@ -95,8 +95,8 @@ const AdminsIssuers = () => {
 
         <Button
           onClick={() => {
-            open()
-            setSelectedPerson(null)
+            open();
+            setSelectedPerson(null); 
           }}
         >
           Add
@@ -108,10 +108,10 @@ const AdminsIssuers = () => {
           <Table.Thead>
             <Table.Tr>
               <Table.Th>ID</Table.Th>
-              <Table.Th>Company</Table.Th>
-              <Table.Th>email</Table.Th>
+              <Table.Th>Company Name</Table.Th>
+              <Table.Th>Email</Table.Th>
               <Table.Th>Authority</Table.Th>
-              <Table.Th>Updated date</Table.Th>
+              <Table.Th>Updated Date</Table.Th>
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>
@@ -120,8 +120,8 @@ const AdminsIssuers = () => {
               <Table.Tr
                 key={d.id}
                 onClick={() => {
-                  open()
-                  setSelectedPerson(d)
+                  open();
+                  setSelectedPerson(d); 
                 }}
                 className="cursor-pointer"
               >
@@ -138,9 +138,15 @@ const AdminsIssuers = () => {
 
       <Pagination total={10} ml={'auto'} />
 
-      {<AdminForm data={selectedPerson} opened={opened} close={close} />}
+      {opened && (
+        <AdminForm
+          data={selectedPerson || {}} 
+          opened={opened}
+          close={close}
+        />
+      )}
     </Stack>
-  )
-}
+  );
+};
 
-export default AdminsIssuers
+export default AdminsIssuers;

@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
-import { Title, Stack, Table, Button, Pagination } from '@mantine/core';
+import { Title, Stack, Table, Button, Pagination, Input } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import AdminForm from './Form';
+import { IconSearch } from '@tabler/icons-react';
 
 const data = [
   {
@@ -106,10 +107,16 @@ const AdminBanks = () => {
       <Title order={3}>Admin Bank List</Title>
 
       <div className="flex justify-between">
+        <Input
+          placeholder="Search by email, person and company"
+          rightSection={<IconSearch />}
+          w={300}
+        />
+
         <Button
           onClick={() => {
             open();
-            setSelectedBank(null); 
+            setSelectedBank(null); // Исправлено с setSelectedPerson на setSelectedBank
           }}
         >
           Add
