@@ -1,4 +1,4 @@
-import { Drawer, SimpleGrid, Stack, TextInput } from '@mantine/core'
+import { Button, Drawer, SimpleGrid, Stack, TextInput } from '@mantine/core'
 import { FC } from 'react'
 
 interface FormProps {
@@ -45,6 +45,8 @@ const AdminForm: FC<FormProps> = ({ data, opened, close }) => {
             placeholder="admin"
           />
         </SimpleGrid>
+
+        <Button>Save</Button>
       </Stack>
     </Drawer>
   )
