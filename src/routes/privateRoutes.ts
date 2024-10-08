@@ -1,14 +1,17 @@
 import type { RouteObject } from 'react-router-dom'
 
 // import Home from '../pages/Home'
+import Cases from '../pages/Cases'
+import Trade from '../pages/Trade'
 import Tokens from '../pages/Tokens'
+import Wallets from '../pages/Wallets'
 import Profile from '../pages/Profile'
 import Investors from '../pages/Investors'
-import AdminsIssuers from '../pages/AdminsIssuers'
+import Portfolio from '../pages/Portfolio'
 import AdminBanks from '../pages/AdminBank'
-import Cases from '../pages/Cases'
-import IssuerRegistration from '../pages/IssuerRegistration'
 import TokenList from '../pages/Tokens/TokenList'
+import AdminsIssuers from '../pages/AdminsIssuers'
+import IssuerRegistration from '../pages/IssuerRegistration'
 
 export const privateRoutes: Array<RouteObject> = [
   // {
@@ -46,5 +49,17 @@ export const privateRoutes: Array<RouteObject> = [
   {
     path: '/admin-banks',
     Component: AdminBanks,
+  },
+  {
+    path: '/trade',
+    Component: Trade,
+  },
+  {
+    path: '/wallets',
+    Component: Wallets,
+  },
+  {
+    path: '/portfolio',
+    Component: Portfolio,
   },
 ]
