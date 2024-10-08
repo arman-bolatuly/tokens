@@ -5,6 +5,9 @@ import First from './First'
 import Second from './Second'
 import Third from './Third'
 import Fourth from './Fourth'
+import Fifth from './Fifth'
+import Sixth from './Sixth'
+import Seventh from './Seventh'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -51,6 +54,12 @@ const Home = () => {
         <Third />
 
         <Fourth />
+
+        <Fifth/>
+
+        <Sixth/>
+
+        <Seventh/>
       </div>
     </div>
   )
