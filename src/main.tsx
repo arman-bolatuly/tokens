@@ -9,7 +9,7 @@ import { theme } from './theme'
 import { router } from './routes/routes.ts'
 import { queryClient } from './../queryClient.ts'
 
-import './index.css'
+import './index.css' 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
