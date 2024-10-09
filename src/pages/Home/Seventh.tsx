@@ -1,37 +1,112 @@
-import { SimpleGrid } from '@mantine/core';
+import { SimpleGrid, Title, Text } from '@mantine/core'
+import { motion } from 'framer-motion'
+import { Player } from '@lottiefiles/react-lottie-player'
+import CountUp from 'react-countup'
+
+import { fadeIn } from '../../animationVariants'
 
 export default function Seventh() {
   return (
-    <div className="relative h-screen flex flex-col items-center justify-center">
-      <header className="text-center mb-8">
-        <h1 className="text-white text-3xl">Будущее токенизации</h1>
-      </header>
-      <SimpleGrid cols={3} verticalSpacing="sm">
-      
-        <div className="bg-white text-black p-4 rounded-lg shadow-lg mt-12"> 
-          <h2 className="text-xl text-center font-semibold">120 миллиардов долларов</h2>
-          <p className="text-gray-700 text-sm">
-            В настоящее время в обращении находится около 120 миллиардов долларов токенизированных денег, и многие компании, предоставляющие финансовые услуги, значительно расширили свои команды и возможности в области цифровых активов.
-          </p>
-        </div>
-        
-        <div className="bg-white text-black p-4 rounded-lg shadow-lg mt-6"> 
-          <h2 className="text-xl text-center font-semibold">Рост в 80 раз</h2>
-          <p className="text-gray-700 text-sm">
-            Ожидается, что токенизация вырастет в 80 раз на частных рынках и достигнет почти 4 триллионов долларов США к 2030 году.
-          </p>
-        </div>
-        
-        <div className="bg-white text-black p-4 rounded-lg shadow-lg">
-          <h2 className="text-xl text-center font-semibold">4-5 триллионов долларов</h2>
-          <p className="text-gray-700 text-sm">
-            Аналитики прогнозируют, что к 2030 году может быть выпущено токенизированных цифровых ценных бумаг на сумму от 4 до 5 триллионов долларов США.
-          </p>
-        </div>
+    <div className="h-[calc(100vh-100px)] flex flex-col justify-evenly">
+      <div>
+        <motion.div
+          variants={fadeIn('up', 0.2)}
+          initial="hidden"
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.6 }}
+        >
+          <header className="text-center">
+            <Title order={1} className="text-[#FFFFFF] mb-4">
+              Будущее токенизации
+            </Title>
+
+            <Text className="text-[#9DA5B2] caption1">
+              Будьте в курсе последних новостей и трендов в мире криптовалют
+            </Text>
+          </header>
+        </motion.div>
+      </div>
+
+      <SimpleGrid cols={3} spacing="xl">
+        <motion.div
+          variants={fadeIn('right', 0.6)}
+          initial="hidden"
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.6 }}
+        >
+          <div className="bg-white p-6 rounded-lg text-center flex flex-col h-[480px]">
+            <Title order={3} className="text-center mb-6">
+              <CountUp end={120} duration={3} delay={1} /> триллионов $
+            </Title>
+
+            <Player
+              autoplay
+              loop
+              src="https://lottie.host/10dcd756-eea3-4a4b-b440-9c3f406517dd/olTs8o9nFu.json"
+              style={{ height: '150px', width: '150px' }}
+            />
+
+            <Text className="text-[#9DA5B2] bodyLongTextDemibold mt-6 mb-12">
+              В настоящее время в обращении находится около 120 миллиардов
+              долларов токенизированных денег, и многие компании,
+              предоставляющие финансовые услуги, значительно расширили свои
+              команды и возможности в области цифровых активов.
+            </Text>
+          </div>
+        </motion.div>
+
+        <motion.div
+          variants={fadeIn('right', 0.4)}
+          initial="hidden"
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.6 }}
+        >
+          <div className="bg-white p-6 rounded-lg text-center flex flex-col space-y-6 h-[480px]">
+            <Title order={3} className="text-center">
+              Рост x<CountUp end={80} duration={3} delay={1} />
+            </Title>
+
+            <Player
+              autoplay
+              loop
+              src="https://lottie.host/b4016b15-3b60-455e-b6c8-8aef0b7d5b91/jakTIItltn.json"
+              style={{ height: '150px', width: '150px' }}
+            />
+
+            <Text className="text-[#9DA5B2] bodyLongTextDemibold">
+              Ожидается, что токенизация вырастет в 80 раз на частных рынках и
+              достигнет почти 4 триллионов долларов США к 2030 году.
+            </Text>
+          </div>
+        </motion.div>
+
+        <motion.div
+          variants={fadeIn('right', 0.2)}
+          initial="hidden"
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.6 }}
+        >
+          <div className="bg-white p-6 rounded-lg text-center flex flex-col h-[480px]">
+            <Title order={3} className="text-center mb-6">
+              {/* 4-5 триллионов долларов */}
+              <CountUp end={5} duration={3} delay={1} /> триллионов $
+            </Title>
+
+            <Player
+              autoplay
+              loop
+              src="https://lottie.host/a4914292-f666-4af6-a2c6-119d8aba1b8a/R3UdrrgYdv.json"
+              style={{ height: '150px', width: '150px' }}
+            />
+
+            <Text className="text-[#9DA5B2] bodyLongTextDemibold mt-6 mb-12">
+              Аналитики прогнозируют, что к 2030 году может быть выпущено
+              токенизированных цифровых ценных бумаг на сумму от 4 до 5
+              триллионов долларов США.
+            </Text>
+          </div>
+        </motion.div>
       </SimpleGrid>
-          <p className="text-white text-lg">
-            В настоящее время в обращении находится около 120 миллиардов долларов токенизированных денег, и многие компании, предоставляющие финансовые услуги, значительно расширили свои команды и возможности в области цифровых активов.
-          </p>
     </div>
-  );
+  )
 }

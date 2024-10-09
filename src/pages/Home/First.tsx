@@ -1,50 +1,113 @@
+import { Title, Text } from '@mantine/core'
 import { Player } from '@lottiefiles/react-lottie-player'
+import { TypeAnimation } from 'react-type-animation'
+import { motion } from 'framer-motion'
+
+import { fadeIn } from '../../animationVariants'
 
 const First = () => {
   return (
-    <div className="flex flex-col justify-around items-center h-[calc(100vh-100px)]">
-      <header className="text-center">
-        <h1 className="text-white mb-6">CryptoInfo</h1>
-        <p className="text-gray-400 bodyDemibold">
-          Будьте в курсе последних новостей и трендов в мире криптовалют
-        </p>
-      </header>
+    <div className="flex flex-col h-[calc(100vh-100px)] justify-evenly">
+      <div>
+        <motion.div
+          variants={fadeIn('up', 0.2)}
+          initial="hidden"
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.6 }}
+          className="flex-1 mb-8 xl:mb-0"
+        >
+          <header className="text-center">
+            <Title order={1} className="text-[#FFFFFF] mb-4">
+              Crypto Info
+            </Title>
 
-      <div className="w-full flex justify-between items-center space-x-8">
-        <div className="flex flex-col space-y-6 w-[400px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
-          <div className="text-center">
-            <span className="text-[19px] font-bold leading-[22px] tracking-[-0.32px]">
+            <Text className="text-[#9DA5B2] caption1">
+              Будьте в курсе последних новостей и трендов в мире криптовалют
+            </Text>
+          </header>
+        </motion.div>
+      </div>
+
+      <div className="w-full flex justify-between items-center">
+        <motion.div
+          variants={fadeIn('right', 0.2)}
+          initial="hidden"
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.6 }}
+          className="flex-1 mb-8 xl:mb-0"
+        >
+          <div className="flex flex-col space-y-6 w-[500px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
+            <Title order={3} className="text-center">
               Популярные криптовалюты
-            </span>
+            </Title>
+
+            <section className="flex flex-col space-y-4 text-center">
+              <div>
+                <Title order={6} className="text-center mb-2">
+                  Что такое криптовалюта?
+                </Title>
+                <Text className="text-[#9DA5B2] bodyLongTextDemibold text-center">
+                  Криптовалюта — это вид цифровой или виртуальной валюты,
+                  который использует криптографию для обеспечения безопасности.
+                  Она работает в децентрализованных сетях, использующих
+                  технологию блокчейн.
+                </Text>
+              </div>
+
+              <TypeAnimation
+                sequence={[
+                  'Топ криптовалют: Биткоин (BTC)',
+                  1000,
+                  'Топ криптовалют: Эфириум (ETH)',
+                  1000,
+                  'Топ криптовалют: Рипл (XRP)',
+                  1000,
+                  'Топ криптовалют: Лайткоин (LTC)',
+                  1000,
+                  'Топ криптовалют: Кардано (ADA)',
+                  1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                style={{
+                  fontSize: '1.5em',
+                  display: 'inline-block',
+                  height: '50px',
+                }}
+                repeat={Infinity}
+              />
+
+              {/* <div>
+              <Title order={6} mb={8}>
+                Топ криптовалют:
+              </Title>
+
+              <div className="smallDemibold">
+                <Text>Биткоин (BTC)</Text>
+                <Text>Эфириум (ETH)</Text>
+                <Text>Рипл (XRP)</Text>
+                <Text>Лайткоин (LTC)</Text>
+                <Text>Кардано (ADA)</Text>
+              </div>
+            </div> */}
+            </section>
           </div>
+        </motion.div>
 
-          <section className="flex flex-col space-y-4">
-            <h2 className="text-xl text-center font-semibold">
-              Что такое криптовалюта?
-            </h2>
-            <p className="text-gray-700 text-sm">
-              Криптовалюта — это вид цифровой или виртуальной валюты, который
-              использует криптографию для обеспечения безопасности. Она работает
-              в децентрализованных сетях, использующих технологию блокчейн.
-            </p>
-
-            <h3 className="text-lg font-semibold">Топ криптовалют:</h3>
-            <ul className="text-gray-700 list-disc ml-5">
-              <li>Биткоин (BTC)</li>
-              <li>Эфириум (ETH)</li>
-              <li>Рипл (XRP)</li>
-              <li>Лайткоин (LTC)</li>
-              <li>Кардано (ADA)</li>
-            </ul>
-          </section>
-        </div>
-
-        <Player
-          autoplay
-          loop
-          src="https://lottie.host/13a2bcf1-c1e6-41d0-8b27-de37405dd3b1/awBQyEEOl4.json"
-          style={{ height: '500px', width: '500px' }}
-        />
+        <motion.div
+          variants={fadeIn('left', 0.2)}
+          initial="hidden"
+          whileInView={'show'}
+          viewport={{ once: false, amount: 0.6 }}
+          className="flex-1 mb-8 xl:mb-0"
+        >
+          <Player
+            autoplay
+            loop
+            src="https://lottie.host/13a2bcf1-c1e6-41d0-8b27-de37405dd3b1/awBQyEEOl4.json"
+            style={{ height: '500px', width: '500px' }}
+          />
+        </motion.div>
       </div>
     </div>
   )
