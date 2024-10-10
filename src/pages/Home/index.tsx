@@ -61,6 +61,14 @@ const Home = () => {
             </div>
 
             <div className="flex items-center space-x-4">
+              <Button
+                variant="light"
+                onClick={() => navigate('/sto')}
+                className="cursor-pointer"
+              >
+                STO Market
+              </Button>
+
               <Button variant="default" onClick={() => navigate('/login')}>
                 Login
               </Button>
