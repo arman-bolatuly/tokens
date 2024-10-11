@@ -5,9 +5,9 @@ import { motion } from 'framer-motion'
 
 import { fadeIn } from '../../animationVariants'
 
-const Second = () => {
+const Blockchain = () => {
   return (
-    <div className="flex flex-col h-[calc(100vh-100px)] justify-evenly">
+    <div className="flex flex-col h-screen justify-evenly" id="blockchain">
       <div>
         <motion.div
           variants={fadeIn('up', 0.2)}
@@ -97,4 +97,4 @@ const Second = () => {
   )
 }
 
-export default Second
+export default Blockchain

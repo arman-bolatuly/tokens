@@ -5,9 +5,12 @@ import { motion } from 'framer-motion'
 
 import { fadeIn } from '../../animationVariants'
 
-const First = () => {
+const Cryptocurrencies = () => {
   return (
-    <div className="flex flex-col h-[calc(100vh-100px)] justify-evenly">
+    <div
+      className="flex flex-col h-screen justify-evenly"
+      id="cryptocurrencies"
+    >
       <div>
         <motion.div
           variants={fadeIn('up', 0.2)}
@@ -113,4 +116,4 @@ const First = () => {
   )
 }
 
-export default First
+export default Cryptocurrencies

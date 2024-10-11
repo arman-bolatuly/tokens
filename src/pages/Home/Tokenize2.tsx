@@ -6,9 +6,9 @@ import { fadeIn } from '../../animationVariants'
 import { IconInfoCircle } from '@tabler/icons-react'
 // import { TypeAnimation } from 'react-type-animation'
 
-const Tokenization = () => {
+const Tokenization2 = () => {
   return (
-    <div className="flex flex-col h-[calc(100vh-100px)] justify-evenly">
+    <div className="flex flex-col h-screen justify-evenly" id="tokenize2">
       <div>
         <motion.div
           variants={fadeIn('up', 0.2)}
@@ -123,4 +123,4 @@ const Tokenization = () => {
   )
 }
 
-export default Tokenization
+export default Tokenization2

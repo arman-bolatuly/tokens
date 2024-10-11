@@ -4,9 +4,9 @@ import { Player } from '@lottiefiles/react-lottie-player'
 
 import { fadeIn } from '../../animationVariants'
 
-export default function Sixth() {
+export default function RWA() {
   return (
-    <div className="h-[calc(100vh-100px)] flex flex-col justify-evenly">
+    <div className="h-screen flex flex-col justify-evenly" id="RWA">
       <div>
         <motion.div
           variants={fadeIn('up', 0.2)}

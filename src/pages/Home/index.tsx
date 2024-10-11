@@ -1,22 +1,15 @@
-import {
-  Divider,
-  Title,
-  Button,
-  UnstyledButton,
-  Portal,
-  Box,
-  rem,
-} from '@mantine/core'
+import { Divider, Title, Button, Portal, Box, rem } from '@mantine/core'
 // import { useHeadroom } from '@mantine/hooks'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-scroll'
 
-import First from './First'
-import Second from './Second'
-import Third from './Third'
-import Fourth from './Fourth'
-import Fifth from './Fifth'
-import Sixth from './Sixth'
-import Seventh from './Seventh'
+import Cryptocurrencies from './Cryptocurrencies'
+import Blockchain from './Blockchain'
+import Steps from './Steps'
+import Fourth from './Tokenize1'
+import Fifth from './Tokenize2'
+import Sixth from './RWA'
+import Seventh from './Future'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -48,16 +41,69 @@ const Home = () => {
               TokenX
             </Title>
 
-            <div className="flex items-center space-x-4">
-              <UnstyledButton c="#FFF">Решение</UnstyledButton>
+            <div className="flex items-center space-x-4 text-[#FFFFFF]">
+              <Link
+                className="cursor-pointer"
+                to="cryptocurrencies"
+                activeClass="active"
+                spy={true}
+              >
+                Криптовалюты
+              </Link>
               <Divider orientation="vertical" />
-              <UnstyledButton c="#FFF">Варианты использование</UnstyledButton>
+              <Link
+                className="cursor-pointer"
+                to="blockchain"
+                activeClass="active"
+                spy={true}
+              >
+                Блокчейн
+              </Link>
               <Divider orientation="vertical" />
-              <UnstyledButton c="#FFF">Токен BKN</UnstyledButton>
+              <Link
+                className="cursor-pointer"
+                to="steps"
+                activeClass="active"
+                spy={true}
+              >
+                Шаги для токенизации
+              </Link>
               <Divider orientation="vertical" />
-              <UnstyledButton c="#FFF">О нас</UnstyledButton>
+              <Link
+                className="cursor-pointer"
+                to="tokenize1"
+                activeClass="active"
+                spy={true}
+              >
+                Что можно токенизировать?
+              </Link>
               <Divider orientation="vertical" />
-              <UnstyledButton c="#FFF">Ресурсы</UnstyledButton>
+              <Link
+                className="cursor-pointer"
+                to="tokenize2"
+                activeClass="active"
+                spy={true}
+              >
+                Токенизация
+              </Link>
+              <Divider orientation="vertical" />
+              <Link
+                className="cursor-pointer"
+                to="RWA"
+                activeClass="active"
+                spy={true}
+              >
+                RWA
+              </Link>
+              <Divider orientation="vertical" />
+              <Link
+                className="cursor-pointer"
+                to="future"
+                activeClass="active"
+                spy={true}
+              >
+                Будущее токенизации
+              </Link>
             </div>
 
             <div className="flex items-center space-x-4">
@@ -81,11 +127,11 @@ const Home = () => {
       </Portal>
 
       <div className="flex flex-col mx-60">
-        <First />
+        <Cryptocurrencies />
 
-        <Second />
+        <Blockchain />
 
-        <Third />
+        <Steps />
 
         <Fourth />
 

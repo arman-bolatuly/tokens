@@ -4,9 +4,9 @@ import { motion } from 'framer-motion'
 import { fadeIn } from '../../animationVariants'
 import { Player } from '@lottiefiles/react-lottie-player'
 
-const Third = () => {
+const Tokenize = () => {
   return (
-    <div className="h-[calc(100vh-100px)] flex flex-col justify-evenly">
+    <div className="h-screen flex flex-col justify-evenly" id="tokenize1">
       <div>
         <motion.div
           variants={fadeIn('up', 0.2)}
@@ -16,7 +16,7 @@ const Third = () => {
         >
           <header className="text-center">
             <Title order={1} className="text-[#FFFFFF] mb-4">
-              Простые шаги для токенизации
+              Что можно токенизировать?
             </Title>
 
             <Text className="text-[#9DA5B2] caption1">
@@ -34,22 +34,24 @@ const Third = () => {
           viewport={{ once: false, amount: 0.6 }}
         >
           <div>
-            <div className="bg-white p-6 rounded-lg text-center flex flex-col space-y-6">
-              <Title order={3} className="text-center">
-                Зарегистрироваться
+            <div className="bg-white p-6 rounded-lg text-center flex flex-col">
+              <Title order={3} className="text-center mb-6">
+                Токенизация недвижимости
               </Title>
 
               <Player
                 autoplay
                 loop
-                src="https://lottie.host/74fdb452-ef2f-43a2-bbc8-6bff15141060/bYpN2vEVUw.json"
+                src="https://lottie.host/10dcd756-eea3-4a4b-b440-9c3f406517dd/olTs8o9nFu.json"
                 style={{ height: '150px', width: '150px' }}
               />
 
-              <Text className="text-[#9DA5B2] bodyLongTextDemibold">
-                Зарегистрируйтесь и начните свой путь к успеху.
+              <Text className="text-[#9DA5B2] bodyLongTextDemibold mt-6 mb-12">
+                Управление недвижимостью, продажа недвижимости, освоение
+                земельных участков, гостиничный бизнес, строительство или любая
+                другая вертикаль.
               </Text>
-              <Button variant="default">Как это работает</Button>
+              <Button variant="default">Узнать больше</Button>
             </div>
           </div>
         </motion.div>
@@ -63,20 +65,22 @@ const Third = () => {
           <div>
             <div className="bg-white p-6 rounded-lg text-center flex flex-col space-y-6">
               <Title order={3} className="text-center">
-                Создание цифровых активов
+                Токенизация стартапов
               </Title>
 
               <Player
                 autoplay
                 loop
-                src="https://lottie.host/001845a5-bfc5-414d-b9d9-ea9317ae2c5d/aM2FZuXy6P.json"
+                src="https://lottie.host/b4016b15-3b60-455e-b6c8-8aef0b7d5b91/jakTIItltn.json"
                 style={{ height: '150px', width: '150px' }}
               />
 
               <Text className="text-[#9DA5B2] bodyLongTextDemibold">
-                Попрощайтесь со сложным кодированием и техническими барьерами.
+                Программное обеспечение как услуга, электронная коммерция,
+                технологии, здравоохранение, Web3, торговые площадки,
+                возобновляемая энергетика или любая другая вертикаль.
               </Text>
-              <Button variant="default">Как это работает</Button>
+              <Button variant="default">Узнать больше</Button>
             </div>
           </div>
         </motion.div>
@@ -90,22 +94,24 @@ const Third = () => {
           <div>
             <div className="bg-white p-6 rounded-lg text-center flex flex-col">
               <Title order={3} className="text-center mb-6">
-                Сбор средств
+                Токенизация франшизы
               </Title>
 
               <Player
                 autoplay
                 loop
-                src="https://lottie.host/4b9b3b6c-6d0d-4955-b3b4-09497e08a438/Gd1rkabtuR.json"
+                src="https://lottie.host/a4914292-f666-4af6-a2c6-119d8aba1b8a/R3UdrrgYdv.json"
                 style={{ height: '150px', width: '150px' }}
               />
 
               <Text className="text-[#9DA5B2] bodyLongTextDemibold mt-6 mb-12">
-                Охватите мировое сообщество инвесторов.
+                Рестораны, отели, спортзалы, супермаркеты, магазины или любые
+                другие франшизы, которые вы только можете себе представить,
+                могут быть токенизированы.
               </Text>
 
               <Button variant="default" className="mt-auto">
-                Как это работает
+                Узнать больше
               </Button>
             </div>
           </div>
@@ -115,4 +121,4 @@ const Third = () => {
   )
 }
 
-export default Third
+export default Tokenize
