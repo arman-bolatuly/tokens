@@ -38,7 +38,7 @@ const SecurityTokenOffering = () => {
 
             <div className="flex items-center space-x-4 text-[#FFFFFF]">
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="realAssets"
                 activeClass="active"
                 // smooth={desktopMode}
@@ -50,7 +50,7 @@ const SecurityTokenOffering = () => {
               <Divider orientation="vertical" />
 
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="advantage"
                 activeClass="active"
                 // smooth={desktopMode}
@@ -62,7 +62,7 @@ const SecurityTokenOffering = () => {
               <Divider orientation="vertical" />
 
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="platform"
                 activeClass="active"
                 // smooth={desktopMode}
@@ -74,7 +74,7 @@ const SecurityTokenOffering = () => {
               <Divider orientation="vertical" />
 
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="STOMarket"
                 activeClass="active"
                 // smooth={desktopMode}

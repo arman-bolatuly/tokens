@@ -37,7 +37,7 @@ const Cryptocurrencies = () => {
           initial="hidden"
           whileInView={'show'}
           viewport={{ once: false, amount: 0.6 }}
-          className="flex-1 mb-8 xl:mb-0"
+          className="flex-1 mb-8 xl:mb-0 w-1/2"
         >
           <div className="flex flex-col space-y-6 w-[500px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
             <Title order={3} className="text-center">
@@ -102,7 +102,7 @@ const Cryptocurrencies = () => {
           initial="hidden"
           whileInView={'show'}
           viewport={{ once: false, amount: 0.6 }}
-          className="flex-1 mb-8 xl:mb-0"
+          className="flex-1 mb-8 xl:mb-0 w-1/2"
         >
           <Player
             autoplay

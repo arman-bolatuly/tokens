@@ -43,7 +43,7 @@ const Home = () => {
 
             <div className="flex items-center space-x-4 text-[#FFFFFF]">
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="cryptocurrencies"
                 activeClass="active"
                 spy={true}
@@ -52,7 +52,7 @@ const Home = () => {
               </Link>
               <Divider orientation="vertical" />
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="blockchain"
                 activeClass="active"
                 spy={true}
@@ -61,7 +61,7 @@ const Home = () => {
               </Link>
               <Divider orientation="vertical" />
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="steps"
                 activeClass="active"
                 spy={true}
@@ -70,7 +70,7 @@ const Home = () => {
               </Link>
               <Divider orientation="vertical" />
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="tokenize1"
                 activeClass="active"
                 spy={true}
@@ -79,7 +79,7 @@ const Home = () => {
               </Link>
               <Divider orientation="vertical" />
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="tokenize2"
                 activeClass="active"
                 spy={true}
@@ -88,7 +88,7 @@ const Home = () => {
               </Link>
               <Divider orientation="vertical" />
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="RWA"
                 activeClass="active"
                 spy={true}
@@ -97,7 +97,7 @@ const Home = () => {
               </Link>
               <Divider orientation="vertical" />
               <Link
-                className="cursor-pointer"
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="future"
                 activeClass="active"
                 spy={true}

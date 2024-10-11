@@ -34,13 +34,13 @@ const Blockchain = () => {
           initial="hidden"
           whileInView={'show'}
           viewport={{ once: false, amount: 0.6 }}
-          className="flex-1 mb-8 xl:mb-0"
+          className="flex-1 mb-8 xl:mb-0 w-1/2"
         >
           <Player
             autoplay
             loop
             src="https://lottie.host/09bbeb85-c060-4882-93c2-8f8a381b522f/t3H3CdzSDF.json"
-            style={{ height: '500px', width: '500px' }}
+            style={{ height: '600px', width: '600px' }}
           />
         </motion.div>
 
@@ -49,7 +49,7 @@ const Blockchain = () => {
           initial="hidden"
           whileInView={'show'}
           viewport={{ once: false, amount: 0.6 }}
-          className="flex-1 mb-8 xl:mb-0"
+          className="flex-1 mb-8 xl:mb-0 w-1/2"
         >
           <div className="flex flex-col space-y-6 w-[600px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
             <Title order={3} className="text-center">

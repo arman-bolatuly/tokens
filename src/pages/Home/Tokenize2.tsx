@@ -41,7 +41,7 @@ const Tokenization2 = () => {
             autoplay
             loop
             src="https://lottie.host/09bbeb85-c060-4882-93c2-8f8a381b522f/t3H3CdzSDF.json"
-            style={{ height: '500px', width: '500px' }}
+            style={{ height: '600px', width: '600px' }}
           />
         </motion.div>
 
