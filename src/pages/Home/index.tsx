@@ -1,4 +1,4 @@
-import { Divider, Title, Button, Portal, Box, rem } from '@mantine/core'
+import { Divider, Title, Button, Portal, Box } from '@mantine/core'
 // import { useHeadroom } from '@mantine/hooks'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-scroll'
@@ -24,7 +24,7 @@ const Home = () => {
             left: 0,
             right: 0,
             padding: 'var(--mantine-spacing-xs)',
-            height: rem(60),
+            height: '74px',
             zIndex: 1000000,
             // transform: `translate3d(0, ${pinned ? 0 : rem(-110)}, 0)`,
             // transition: 'transform 400ms ease',
@@ -36,7 +36,7 @@ const Home = () => {
               order={3}
               c="#FFFFFF"
               className="cursor-pointer text-[#FFFFFF]"
-              onClick={() => navigate('/home')}
+              onClick={() => navigate('/')}
             >
               TokenX
             </Title>

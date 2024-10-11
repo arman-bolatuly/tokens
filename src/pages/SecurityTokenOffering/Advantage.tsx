@@ -1,4 +1,11 @@
-import { Title, Text, Blockquote, List, Spoiler } from '@mantine/core'
+import {
+  Title,
+  Text,
+  Blockquote,
+  List,
+  Spoiler,
+  SimpleGrid,
+} from '@mantine/core'
 import { motion } from 'framer-motion'
 
 import { fadeIn } from '../../animationVariants'
@@ -30,7 +37,7 @@ const Advantage = () => {
         </motion.div>
       </div>
 
-      <div className="w-full flex justify-between items-center">
+      <SimpleGrid cols={2} spacing="xl" className="w-full">
         <motion.div
           variants={fadeIn('right', 0.2)}
           initial="hidden"
@@ -38,7 +45,7 @@ const Advantage = () => {
           viewport={{ once: false, amount: 0.6 }}
           className="flex-1 mb-8 xl:mb-0"
         >
-          <div className="flex flex-col space-y-6 w-[600px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
+          <div className="flex flex-col space-y-6 w-[500px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
             <Title order={3} className="text-center">
               Преимущества для инвесторов
             </Title>
@@ -118,7 +125,7 @@ const Advantage = () => {
           viewport={{ once: false, amount: 0.6 }}
           className="flex-1 mb-8 xl:mb-0"
         >
-          <div className="flex flex-col space-y-6 w-[600px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
+          <div className="flex flex-col space-y-6 w-[500px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
             <Title order={3} className="text-center">
               Преимущества для компаний-эмитентов
             </Title>
@@ -188,7 +195,7 @@ const Advantage = () => {
             </section>
           </div>
         </motion.div>
-      </div>
+      </SimpleGrid>
     </section>
   )
 }

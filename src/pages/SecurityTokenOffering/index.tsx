@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Portal, rem, Title } from '@mantine/core'
+import { Box, Button, Divider, Portal, Title } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-scroll'
 
@@ -19,7 +19,7 @@ const SecurityTokenOffering = () => {
             left: 0,
             right: 0,
             padding: 'var(--mantine-spacing-xs)',
-            height: rem(60),
+            height: '74px',
             zIndex: 1000000,
             // transform: `translate3d(0, ${pinned ? 0 : rem(-110)}, 0)`,
             // transition: 'transform 400ms ease',
@@ -31,7 +31,7 @@ const SecurityTokenOffering = () => {
               order={3}
               c="#FFFFFF"
               className="cursor-pointer text-[#FFFFFF]"
-              onClick={() => navigate('/home')}
+              onClick={() => navigate('/')}
             >
               TokenX
             </Title>

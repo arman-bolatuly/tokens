@@ -44,6 +44,7 @@ const RealAssets = () => {
               color="blue"
               // cite="– Forrest Gump"
               icon={<IconInfoCircle />}
+              h={150}
             >
               Токены STO выпущенные на нашей платформе, подтверждаются реальными
               активами.
@@ -62,9 +63,10 @@ const RealAssets = () => {
               color="blue"
               // cite="– Forrest Gump"
               icon={<IconInfoCircle />}
+              h={150}
             >
-              Токены STO дают владельцам право на акции, реальные активы, долю
-              прибыли, реализацию их инвестиционных интересов.
+              STO обеспечивает доступ к инвестициям и активам для пользователей
+              по всему миру.
             </Blockquote>
           </div>
         </motion.div>
@@ -80,9 +82,10 @@ const RealAssets = () => {
               color="blue"
               // cite="– Forrest Gump"
               icon={<IconInfoCircle />}
+              h={150}
             >
-              STO обеспечивает доступ к инвестициям и активам для пользователей
-              по всему миру.
+              Токены STO дают владельцам право на акции, реальные активы, долю
+              прибыли, реализацию их инвестиционных интересов.
             </Blockquote>
           </div>
         </motion.div>
@@ -98,6 +101,7 @@ const RealAssets = () => {
               color="blue"
               // cite="– Forrest Gump"
               icon={<IconInfoCircle />}
+              h={150}
             >
               Наша платфарма обеспечивает прозрачное раскрытие рисков,
               страхование и мониторинг активов.
