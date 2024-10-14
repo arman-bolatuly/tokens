@@ -6,6 +6,7 @@ import Login from '../pages/Login'
 import ErrorPage from '../pages/Error'
 import Registration from '../pages/Registration'
 import { privateRoutes } from './privateRoutes'
+import SecurityTokenOffering from '../pages/SecurityTokenOffering'
 
 export const router = createBrowserRouter([
   {
@@ -25,5 +26,9 @@ export const router = createBrowserRouter([
   {
     path: '/home',
     Component: Home,
+  },
+  {
+    path: '/sto',
+    Component: SecurityTokenOffering,
   },
 ])

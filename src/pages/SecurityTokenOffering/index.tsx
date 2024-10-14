@@ -1,21 +1,16 @@
-import { Divider, Title, Button, Portal, Box } from '@mantine/core'
-// import { useHeadroom } from '@mantine/hooks'
+import { Box, Button, Divider, Portal, Title } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-scroll'
 
-import Cryptocurrencies from './Cryptocurrencies'
-import Blockchain from './Blockchain'
-import Steps from './Steps'
-import Fourth from './Tokenize1'
-import Fifth from './Tokenize2'
-import Sixth from './RWA'
-import Seventh from './Future'
+import STOMarket from './STOMarket'
+import Advantage from './Advantage'
+import RealAssets from './RealAssets'
+import Platform from './Platform'
 
-const Home = () => {
+const SecurityTokenOffering = () => {
   const navigate = useNavigate()
-  // const pinned = useHeadroom({ fixedAt: 120 })
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col m-0 p-0 overflow-hidden">
       <Portal>
         <Box
           style={{
@@ -44,75 +39,58 @@ const Home = () => {
             <div className="flex items-center space-x-4 text-[#FFFFFF]">
               <Link
                 className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
-                to="cryptocurrencies"
+                to="realAssets"
                 activeClass="active"
+                // smooth={desktopMode}
                 spy={true}
               >
-                Криптовалюты
+                Реальные активы
               </Link>
+
               <Divider orientation="vertical" />
+
               <Link
                 className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
-                to="blockchain"
+                to="advantage"
                 activeClass="active"
+                // smooth={desktopMode}
                 spy={true}
               >
-                Блокчейн
+                Приемущества
               </Link>
+
               <Divider orientation="vertical" />
+
               <Link
                 className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
-                to="steps"
+                to="platform"
                 activeClass="active"
+                // smooth={desktopMode}
                 spy={true}
               >
-                Шаги для токенизации
+                Платформа
               </Link>
+
               <Divider orientation="vertical" />
+
               <Link
                 className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
-                to="tokenize1"
+                to="STOMarket"
                 activeClass="active"
+                // smooth={desktopMode}
                 spy={true}
               >
-                Что можно токенизировать?
-              </Link>
-              <Divider orientation="vertical" />
-              <Link
-                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
-                to="tokenize2"
-                activeClass="active"
-                spy={true}
-              >
-                Токенизация
-              </Link>
-              <Divider orientation="vertical" />
-              <Link
-                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
-                to="RWA"
-                activeClass="active"
-                spy={true}
-              >
-                RWA
-              </Link>
-              <Divider orientation="vertical" />
-              <Link
-                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
-                to="future"
-                activeClass="active"
-                spy={true}
-              >
-                Будущее токенизации
+                STO Market
               </Link>
             </div>
 
             <div className="flex items-center space-x-4">
               <Button
                 variant="light"
-                onClick={() => navigate('/sto')}
+                onClick={() => navigate('/home')}
                 className="cursor-pointer"
               >
-                STO Market
+                Home
               </Button>
 
               <Button variant="default" onClick={() => navigate('/login')}>
@@ -126,23 +104,17 @@ const Home = () => {
         </Box>
       </Portal>
 
-      <div className="flex flex-col mx-60">
-        <Cryptocurrencies />
+      <div className="flex flex-col">
+        <RealAssets />
 
-        <Blockchain />
+        <Advantage />
 
-        <Steps />
+        <Platform />
 
-        <Fourth />
-
-        <Fifth />
-
-        <Sixth />
-
-        <Seventh />
+        <STOMarket />
       </div>
     </div>
   )
 }
 
-export default Home
+export default SecurityTokenOffering
