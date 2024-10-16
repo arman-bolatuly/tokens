@@ -1,35 +1,53 @@
-import { Text, Button, SimpleGrid } from '@mantine/core';
-import { IconMathGreater } from '@tabler/icons-react';
+import { Text, SimpleGrid, Card, Badge, Title } from '@mantine/core';
+import { IconChevronRight, } from '@tabler/icons-react';
 
 function TradeFirst() {
   return (
-    <div>
-      <Text size="md" className="text-white mt-6">Complete your account</Text>
-      
-      <SimpleGrid cols={3} spacing="lg" mt="lg">
-        <Button variant="default" color="white" className="flex justify-between items-center" style={{ height: '96px' }}>
-          <div className="flex flex-col">
-            <Text className="text-black">Verify Your Identity</Text>
-            <Text size="sm" className="text-black mt-1" style={{ textAlign: 'left' }}>Not Complete</Text>
-          </div>
-          <IconMathGreater stroke={2} className="text-black ml-40" />
-        </Button>
+    <div className="bg-[#f1f3f5] p-4 rounded-[10px] flex flex-col space-y-4">
+      <Title order={6}>Complete your account</Title>
 
-        <Button variant="default" color="white" className="flex justify-between items-center" style={{ height: '96px' }}>
-          <div className="flex flex-col">
-            <Text className="text-black">Complete Investment Profile</Text>
-            <Text size="sm" className="text-black mt-1" style={{ textAlign: 'left' }}>Not Complete</Text>
-          </div>
-          <IconMathGreater stroke={2} className="text-black ml-24" />
-        </Button>
+      <SimpleGrid cols={3} spacing="lg">
+        <Card shadow="sm" component="a" href="#" h={84}>
+          <div className="flex justify-between items-center">
+            <div>
+              <Text>Verify Your Identity</Text>
 
-        <Button variant="default" color="white" className="flex justify-between items-center" style={{ height: '96px' }}>
-          <div className="flex flex-col">
-            <Text className="text-black">Qualification</Text>
-            <Text size="sm" className="text-black mt-1" style={{ textAlign: 'left' }}>Not Complete</Text>
+              <Badge color="#ced4da" radius={8} c="#868e96" mt={8}>
+                Not completed
+              </Badge>
+            </div>
+
+            <IconChevronRight size={24} />
           </div>
-          <IconMathGreater stroke={2} className="text-black ml-48"/>
-        </Button>
+        </Card>
+
+        <Card shadow="sm" component="a" href="#" h={84}>
+          <div className="flex justify-between items-center">
+            <div className="flex flex-col h-full justify-between">
+              <Text>Complete Investment Profile</Text>
+
+              <Badge color="#ced4da" radius={8} c="#868e96" mt={8}>
+                Not completed
+              </Badge>
+            </div>
+
+            <IconChevronRight size={24} />
+          </div>
+        </Card>
+
+        <Card shadow="sm" component="a" href="#" h={84}>
+          <div className="flex justify-between items-center">
+            <div className="flex flex-col h-full justify-between">
+              <Text>Qualification</Text>
+
+              <Badge color="#ced4da" radius={8} c="#868e96" mt={8}>
+                Not completed
+              </Badge>
+            </div>
+
+            <IconChevronRight size={24} />
+          </div>
+        </Card>
       </SimpleGrid>
     </div>
   );
