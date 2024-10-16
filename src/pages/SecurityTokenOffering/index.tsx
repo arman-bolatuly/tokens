@@ -6,6 +6,7 @@ import STOMarket from './STOMarket'
 import Advantage from './Advantage'
 import RealAssets from './RealAssets'
 import Platform from './Platform'
+import CryptoCoins from './CryptoCoins'
 
 const SecurityTokenOffering = () => {
   const navigate = useNavigate()
@@ -37,6 +38,15 @@ const SecurityTokenOffering = () => {
             </Title>
 
             <div className="flex items-center space-x-4 text-[#FFFFFF]">
+              <Link
+                className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
+                to="table"
+                activeClass="active"
+                spy={true}
+              >
+                List of cryptocurrencies
+              </Link>
+              <Divider orientation="vertical" />
               <Link
                 className="cursor-pointer transition ease-in-out delay-150 hover:translate-y-0.5 hover:scale-0.1 hover:text-indigo-500 duration-300"
                 to="realAssets"
@@ -105,6 +115,8 @@ const SecurityTokenOffering = () => {
       </Portal>
 
       <div className="flex flex-col">
+        <CryptoCoins />
+
         <RealAssets />
 
         <Advantage />
