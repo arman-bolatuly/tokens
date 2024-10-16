@@ -1,7 +1,13 @@
-import { useState } from 'react'; 
-import { SegmentedControl, TextInput, Button, Table, Title } from '@mantine/core';
+import { useState } from 'react'
+import {
+  SegmentedControl,
+  TextInput,
+  Button,
+  Table,
+  Title,
+} from '@mantine/core'
 
-import TradeFirst from './TradeFirst';
+import TradeFirst from './TradeFirst'
 
 const data = [
   {
@@ -28,60 +34,63 @@ const data = [
     volume: '$10M',
     marketCap: '$10B',
   },
-];
+]
 
 function Trade() {
-  const [search, setSearch] = useState(''); 
+  const [search, setSearch] = useState('')
 
   return (
-      <div className="flex flex-col space-y-4 text=['#FFFFFF']">
-        
-        <TradeFirst />
+    <div className="flex flex-col space-y-4 text=['#FFFFFF']">
+      <TradeFirst />
 
-        <SegmentedControl data={['Asset Catalog', 'My Orders']} />
+      <SegmentedControl data={['Asset Catalog', 'My Orders']} />
 
-          <Title order={4} className='text-[#FFFFFF]'>All investment opportunities</Title>
-        
-        <div className="flex mt-4 space-x-4">
-          <TextInput
-            className="w-full"
-            placeholder="Search"
-            value={search}
-            onChange={(e) => setSearch(e.currentTarget.value)}
-          />
-          <Button>Search</Button>
-        </div>
+      <Title order={4} className="text-[#FFFFFF]">
+        All investment opportunities
+      </Title>
 
-        <div className="overflow-auto border-solid border-[#EBEDF0] rounded-lg text-[#FFFFFF]">
-          <Table>
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>Name</Table.Th>
-                <Table.Th>Symbol</Table.Th>
-                <Table.Th>Last Price</Table.Th>
-                <Table.Th>Change (24H)</Table.Th>
-                <Table.Th>Volume</Table.Th>
-                <Table.Th>Market Cap</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              {data
-                .filter((d) => d.name.toLowerCase().includes(search.toLowerCase())) 
-                .map((d) => (
-                  <Table.Tr key={d.symbol}> 
-                    <Table.Td>{d.name}</Table.Td>
-                    <Table.Td>{d.symbol}</Table.Td>
-                    <Table.Td>{d.lastPrice}</Table.Td>
-                    <Table.Td>{d.change24h}</Table.Td>
-                    <Table.Td>{d.volume}</Table.Td>
-                    <Table.Td>{d.marketCap}</Table.Td>
-                  </Table.Tr>
-              ))}
-            </Table.Tbody>
-          </Table>
-        </div>
+      <div className="flex item-center">
+        <TextInput
+          className="w-full"
+          placeholder="Search"
+          value={search}
+          onChange={e => setSearch(e.currentTarget.value)}
+        />
+        <Button ml="lg" w={150}>
+          Search
+        </Button>
       </div>
-  );
+
+      <div className="overflow-auto border-solid border-[#EBEDF0] rounded-lg text-[#FFFFFF]">
+        <Table>
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>Name</Table.Th>
+              <Table.Th>Symbol</Table.Th>
+              <Table.Th>Last Price</Table.Th>
+              <Table.Th>Change (24H)</Table.Th>
+              <Table.Th>Volume</Table.Th>
+              <Table.Th>Market Cap</Table.Th>
+            </Table.Tr>
+          </Table.Thead>
+          <Table.Tbody>
+            {data
+              .filter(d => d.name.toLowerCase().includes(search.toLowerCase()))
+              .map(d => (
+                <Table.Tr key={d.symbol}>
+                  <Table.Td>{d.name}</Table.Td>
+                  <Table.Td>{d.symbol}</Table.Td>
+                  <Table.Td>{d.lastPrice}</Table.Td>
+                  <Table.Td>{d.change24h}</Table.Td>
+                  <Table.Td>{d.volume}</Table.Td>
+                  <Table.Td>{d.marketCap}</Table.Td>
+                </Table.Tr>
+              ))}
+          </Table.Tbody>
+        </Table>
+      </div>
+    </div>
+  )
 }
 
-export default Trade;
+export default Trade

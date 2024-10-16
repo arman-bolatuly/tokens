@@ -1,28 +1,40 @@
-import { Container, Text, Button, CopyButton, Tooltip, Modal, Badge, Stepper } from '@mantine/core';
-import { IconCopy, IconPlus } from '@tabler/icons-react';
-import { useDisclosure } from '@mantine/hooks';
-import { useState } from 'react';
+import {
+  Text,
+  Button,
+  CopyButton,
+  Tooltip,
+  Modal,
+  Badge,
+  Stepper,
+} from '@mantine/core'
+import { IconCopy, IconPlus } from '@tabler/icons-react'
+import { useDisclosure } from '@mantine/hooks'
+import { useState } from 'react'
 
 const WalletAddress = ({ address }: { address: string }) => (
   <CopyButton value={address}>
     {({ copied, copy }) => (
-      <Tooltip label={copied ? "Copied" : "Click to copy"} withArrow position="right">
+      <Tooltip
+        label={copied ? 'Copied' : 'Click to copy'}
+        withArrow
+        position="right"
+      >
         <div className="flex items-center cursor-pointer" onClick={copy}>
           <Text>{address}</Text>
-          <IconCopy stroke={2} color={copied ? "green" : "gray"} />
+          <IconCopy stroke={2} color={copied ? 'green' : 'gray'} />
         </div>
       </Tooltip>
     )}
   </CopyButton>
-);
+)
 
 const WalletOverview = () => {
-  const [opened, { open, close }] = useDisclosure(false);
-  const walletAddress = "0x5eceb3cce2755156379f764ee713d4f33c03a11c";
-  const [active, setActive] = useState(1);
+  const [opened, { open, close }] = useDisclosure(false)
+  const walletAddress = '0x5eceb3cce2755156379f764ee713d4f33c03a11c'
+  const [active, setActive] = useState(1)
 
   return (
-    <Container className="bg-white p-4 mt-6 flex justify-between rounded-md w-full mx-auto" style={{ maxWidth: '100vw' }}>
+    <div className="w-full bg-white p-4 flex justify-between items-center rounded-md">
       <div>
         <Text size="lg">Metamask</Text>
         <WalletAddress address={walletAddress} />
@@ -31,12 +43,7 @@ const WalletOverview = () => {
         </Badge>
       </div>
 
-     <Button
-        className="mt-5"
-        variant="filled"
-        color="blue"
-        onClick={open}
-      >
+      <Button variant="filled" color="blue" onClick={open}>
         Add Asset
         <IconPlus stroke={2} className="ml-2" />
       </Button>
@@ -44,17 +51,20 @@ const WalletOverview = () => {
       <Modal opened={opened} onClose={close} title="Add Asset">
         <Stepper active={active} onStepClick={setActive} className="mt-2">
           <Stepper.Step label="1. Asset">
-            <Text size="sm" className="text-[#535353]">You have no investments yet.</Text>
+            <Text className="text-[#535353] bodyLongTextDemibold">
+              You have no investments yet.
+            </Text>
           </Stepper.Step>
           <Stepper.Step label="2. Authorize">
-            <Text size="sm" className="text-[#535353]">
-              If you want to authorize a wallet for a peer-to-peer transfer, please contact the issuer of that asset.
+            <Text className="text-[#535353] bodyLongTextDemibold">
+              If you want to authorize a wallet for a peer-to-peer transfer,
+              please contact the issuer of that asset.
             </Text>
           </Stepper.Step>
         </Stepper>
       </Modal>
-    </Container>
-  );
-};
+    </div>
+  )
+}
 
-export default WalletOverview;
+export default WalletOverview
