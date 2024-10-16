@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { Avatar as MantineAvatar, SegmentedControl, Table as MantineTable, TextInput, Button } from '@mantine/core';
+import { useState } from 'react'; 
+import { SegmentedControl, TextInput, Button, Table, Title } from '@mantine/core';
+
 import TradeFirst from './TradeFirst';
-import TradeAvatar from './TradeAvatar';
 
 const data = [
   {
@@ -31,45 +31,17 @@ const data = [
 ];
 
 function Trade() {
-  const [opened, setOpened] = useState(false);
-  const avatarSrc = ""; 
-  const userName = "Erlan Ibatulliev";
   const [search, setSearch] = useState(''); 
 
-  const openModal = () => setOpened(true);
-  const closeModal = () => setOpened(false);
-
   return (
-    <>
-      <div className="relative h-screen p-4">
-        <div className="flex items-center absolute top-4 right-4 cursor-pointer">
-          <MantineAvatar
-            variant="filled"
-            radius="xl"
-            src={avatarSrc}
-            onClick={openModal}
-            className="cursor-pointer"
-          />
-          <div onClick={openModal} className="ml-3 text-white text-lg font-medium">
-            {userName}
-          </div>
-        </div>
-
-        <TradeAvatar
-          opened={opened}
-          onClose={closeModal}
-          userName={userName}
-          avatarSrc={avatarSrc}
-        />
-
+      <div className="flex flex-col space-y-4 text=['#FFFFFF']">
+        
         <TradeFirst />
 
-        <SegmentedControl data={['Asset Catalog', 'My Orders']} className="mt-4" />
+        <SegmentedControl data={['Asset Catalog', 'My Orders']} />
 
-        <div className="mt-8">
-          <h1 className="text-2xl font-semibold text-white">All investment opportunities</h1>
-        </div>
-
+          <Title order={4} className='text-[#FFFFFF]'>All investment opportunities</Title>
+        
         <div className="flex mt-4 space-x-4">
           <TextInput
             className="w-full"
@@ -80,36 +52,35 @@ function Trade() {
           <Button>Search</Button>
         </div>
 
-        <div className="overflow-auto border border-gray-300 rounded-lg mt-4">
-          <MantineTable striped highlightOnHover>
-            <thead className="bg-gray-800">
-              <tr className="text-left text-white">
-                <th className="p-4">Name</th>
-                <th className="p-4">Symbol</th>
-                <th className="p-4">Last Price</th>
-                <th className="p-4">Change (24H)</th>
-                <th className="p-4">Volume</th>
-                <th className="p-4">Market Cap</th>
-              </tr>
-            </thead>
-            <tbody className="bg-gray-700">
+        <div className="overflow-auto border-solid border-[#EBEDF0] rounded-lg text-[#FFFFFF]">
+          <Table>
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>Name</Table.Th>
+                <Table.Th>Symbol</Table.Th>
+                <Table.Th>Last Price</Table.Th>
+                <Table.Th>Change (24H)</Table.Th>
+                <Table.Th>Volume</Table.Th>
+                <Table.Th>Market Cap</Table.Th>
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody>
               {data
-                .filter((d) => d.name.toLowerCase().includes(search.toLowerCase())) // Поиск по имени
+                .filter((d) => d.name.toLowerCase().includes(search.toLowerCase())) 
                 .map((d) => (
-                  <tr>
-                    <td className="p-4 text-white">{d.name}</td>
-                    <td className="p-4 text-white">{d.symbol}</td>
-                    <td className="p-4 text-white">{d.lastPrice}</td>
-                    <td className="p-4 text-white">{d.change24h}</td>
-                    <td className="p-4 text-white">{d.volume}</td>
-                    <td className="p-4 text-white">{d.marketCap}</td>
-                  </tr>
+                  <Table.Tr key={d.symbol}> 
+                    <Table.Td>{d.name}</Table.Td>
+                    <Table.Td>{d.symbol}</Table.Td>
+                    <Table.Td>{d.lastPrice}</Table.Td>
+                    <Table.Td>{d.change24h}</Table.Td>
+                    <Table.Td>{d.volume}</Table.Td>
+                    <Table.Td>{d.marketCap}</Table.Td>
+                  </Table.Tr>
               ))}
-            </tbody>
-          </MantineTable>
+            </Table.Tbody>
+          </Table>
         </div>
       </div>
-    </>
   );
 }
 
