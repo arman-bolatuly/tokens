@@ -15,11 +15,13 @@ import {
   IconTrendingDown,
 } from '@tabler/icons-react'
 import { useQuery } from '@tanstack/react-query'
+import { useDisclosure } from '@mantine/hooks'
 import debounce from 'lodash.debounce'
 
 import { getCryptoCoins } from '../../apiService/cryptoCoinsService'
 import { CustomPagination } from '../../components/ui/CustomPagination'
 import TableSkeleton from '../../components/ui/TableSkeleton'
+import ChartModal from './ChartModal'
 
 const CryptoCoins = () => {
   const [activePage, setActivePage] = useState(1)
@@ -27,6 +29,10 @@ const CryptoCoins = () => {
   const [perPage, setPerPage] = useState<string | null>('10')
 
   const [search, setSearch] = useState<string>('')
+
+  const [coinId, setCoinId] = useState<string>('')
+
+  const [opened, { open, close }] = useDisclosure(false)
 
   const debouncedSearch = useMemo(() => {
     return debounce((e: any) => {
@@ -98,7 +104,14 @@ const CryptoCoins = () => {
           ) : (
             <Table.Tbody>
               {currency?.map((c: any) => (
-                <Table.Tr key={c.name} className="smallDemibold">
+                <Table.Tr
+                  key={c.name}
+                  className="smallDemibold cursor-pointer"
+                  onClick={() => {
+                    open()
+                    setCoinId(c.id)
+                  }}
+                >
                   <Table.Td>
                     <Avatar>
                       <Image src={c.icon} alt={c.name} width={32} height={32} />
@@ -161,6 +174,8 @@ const CryptoCoins = () => {
           total={pageCount}
         />
       </div>
+
+      <ChartModal opened={opened} close={close} coinId={coinId} />
     </section>
   )
 }

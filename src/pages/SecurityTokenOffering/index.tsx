@@ -7,6 +7,7 @@ import Advantage from './Advantage'
 import RealAssets from './RealAssets'
 import Platform from './Platform'
 import CryptoCoins from './CryptoCoins'
+import RechartsLineChart from './ChartModal'
 
 const SecurityTokenOffering = () => {
   const navigate = useNavigate()
