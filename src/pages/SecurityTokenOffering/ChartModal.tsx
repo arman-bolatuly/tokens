@@ -60,7 +60,6 @@ const ChartModal = ({ opened, close, coinId }: any) => {
         timingFunction: 'linear',
       }}
       size={'100%'}
-      // zIndex={1000000}
       centered
     >
       {isLoading && (

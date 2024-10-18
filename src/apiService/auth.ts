@@ -1,9 +1,11 @@
 import { apiService } from '.'
 
 const accountService = {
-  login: (bodyData: any) => apiService.post('auth/login', bodyData),
+  registration: (bodyData: any) => apiService.post('register', bodyData),
 
-  getAccount: () => apiService.get('auth/me'),
+  login: (bodyData: any) => apiService.post('login', bodyData),
+
+  getAccount: () => apiService.get('me'),
 }
 
-export const { login, getAccount } = accountService
+export const { login, getAccount, registration } = accountService

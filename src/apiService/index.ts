@@ -9,7 +9,7 @@ import axios from 'axios'
 import { store } from '../store'
 
 export const apiService: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_KEY,
+  baseURL: import.meta.env.VITE_API_BASE_URL,
 })
 
 apiService.interceptors.request.use((config: InternalAxiosRequestConfig) => {
