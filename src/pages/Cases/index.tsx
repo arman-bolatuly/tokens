@@ -1,35 +1,48 @@
-import { useState, useEffect } from 'react'
-import { Title, TextInput, Button, Table, Modal } from '@mantine/core'
+import { Title, Button, Table, Input } from '@mantine/core'
+import { useQuery } from '@tanstack/react-query'
+import { useMemo, useState } from 'react'
+import { IconSearch } from '@tabler/icons-react'
+import { useDisclosure } from '@mantine/hooks'
+import debounce from 'lodash.debounce'
+
+import CreateModal from './CreateModal'
+import { getCases } from '../../apiService/casesService'
+
+const elements = [
+  { position: 6, mass: 12.011, symbol: 'C', name: 'Carbon' },
+  { position: 7, mass: 14.007, symbol: 'N', name: 'Nitrogen' },
+  { position: 39, mass: 88.906, symbol: 'Y', name: 'Yttrium' },
+  { position: 56, mass: 137.33, symbol: 'Ba', name: 'Barium' },
+  { position: 58, mass: 140.12, symbol: 'Ce', name: 'Cerium' },
+]
 
 const Cases = () => {
-  const [cases, setCases] = useState<{ id: number; name: string }[]>([])
-  const [searchTerm, setSearchTerm] = useState('')
-  const [modalOpened, setModalOpened] = useState(false)
-  const [newCaseName, setNewCaseName] = useState('')
+  const [activePage, setActivePage] = useState(1)
 
-  useEffect(() => {
-    const storedCases = localStorage.getItem('cases')
-    if (storedCases) setCases(JSON.parse(storedCases))
+  const [perPage, setPerPage] = useState<string | null>('10')
+
+  const [search, setSearch] = useState<string>('')
+
+  const [opened, { open, close }] = useDisclosure(false)
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['adm/cases', search, activePage, perPage],
+    queryFn: () =>
+      getCases({
+        name: search,
+        page: activePage,
+        limit: perPage,
+      }),
+  })
+
+  console.log('data: ', data)
+
+  const debouncedSearch = useMemo(() => {
+    return debounce((e: any) => {
+      setSearch(e.target.value)
+      setActivePage(1)
+    }, 1000)
   }, [])
-
-  const addCase = () => {
-    if (!newCaseName.trim()) return
-    const updatedCases = [...cases, { id: cases.length + 1, name: newCaseName }]
-    setCases(updatedCases)
-    localStorage.setItem('cases', JSON.stringify(updatedCases))
-    setNewCaseName('')
-    setModalOpened(false)
-  }
-
-  const deleteCase = (id: number) => {
-    const updatedCases = cases.filter(caseItem => caseItem.id !== id)
-    setCases(updatedCases)
-    localStorage.setItem('cases', JSON.stringify(updatedCases))
-  }
-
-  const filteredCases = cases.filter(caseItem =>
-    caseItem.name.toLowerCase().includes(searchTerm.toLowerCase()),
-  )
 
   return (
     <div className="flex flex-col space-y-6">
@@ -38,119 +51,39 @@ const Cases = () => {
       </Title>
 
       <div className="flex justify-between">
-        <TextInput
+        <Input
           placeholder="Search Cases"
-          value={searchTerm}
-          onChange={e => setSearchTerm(e.currentTarget.value)}
+          rightSection={<IconSearch />}
+          miw={300}
+          rightSectionWidth={40}
+          onChange={debouncedSearch}
         />
-        <Button onClick={() => setModalOpened(true)}>Add</Button>
+
+        <Button onClick={open}>Add</Button>
       </div>
 
-      <Modal
-        opened={modalOpened}
-        onClose={() => setModalOpened(false)}
-        title="Case Create"
-      >
-        <TextInput
-          placeholder="Cases Name"
-          value={newCaseName}
-          onChange={e => setNewCaseName(e.currentTarget.value)}
-        />
-        <Button onClick={addCase} style={{ marginTop: '10px' }}>
-          Add
-        </Button>
-      </Modal>
-
-      <div className="overflow-auto border-solid border-[#EBEDF0] rounded-lg">
-        <Table
-          style={{
-            marginTop: '20px',
-            color: 'white',
-            borderCollapse: 'collapse',
-          }}
-        >
-          <thead>
-            <tr>
-              <th
-                style={{
-                  padding: '10px',
-                  textAlign: 'left',
-                  backgroundColor: 'transparent',
-                }}
-              >
-                ID
-              </th>
-              <th
-                style={{
-                  padding: '10px',
-                  textAlign: 'left',
-                  backgroundColor: 'transparent',
-                }}
-              >
-                Cases Name
-              </th>
-              <th
-                style={{
-                  padding: '10px',
-                  textAlign: 'left',
-                  backgroundColor: 'transparent',
-                }}
-              >
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredCases?.length === 0 ? (
-              <tr
-                key={0}
-                style={{ cursor: 'pointer', backgroundColor: 'transparent' }}
-              >
-                <td colSpan={3} className="text-center">
-                  No Data
-                </td>
-              </tr>
-            ) : (
-              filteredCases.map(item => (
-                <tr
-                  key={item.id}
-                  style={{ cursor: 'pointer', backgroundColor: 'transparent' }}
-                >
-                  <td
-                    style={{
-                      padding: '10px',
-                      textAlign: 'left',
-                      border: '1px solid #ccc',
-                    }}
-                  >
-                    {item.id}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px',
-                      textAlign: 'left',
-                      border: '1px solid #ccc',
-                    }}
-                  >
-                    {item.name}
-                  </td>
-                  <td
-                    style={{
-                      padding: '10px',
-                      textAlign: 'left',
-                      border: '1px solid #ccc',
-                    }}
-                  >
-                    <Button color="red" onClick={() => deleteCase(item.id)}>
-                      Delete
-                    </Button>
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
+      <div className="overflow-auto border-solid border-[#EBEDF0] rounded-lg text-[#FFFFFF]">
+        <Table>
+          <Table.Thead>
+            <Table.Tr>
+              <Table.Th>Element position</Table.Th>
+              <Table.Th>Element name</Table.Th>
+              <Table.Th></Table.Th>
+            </Table.Tr>
+          </Table.Thead>
+          <Table.Tbody>
+            {elements.map((element: any) => (
+              <Table.Tr key={element.name}>
+                <Table.Td>{element.position}</Table.Td>
+                <Table.Td>{element.name}</Table.Td>
+                <Table.Td>{element.symbol}</Table.Td>
+              </Table.Tr>
+            ))}
+          </Table.Tbody>
         </Table>
       </div>
+
+      <CreateModal opened={opened} close={close} />
     </div>
   )
 }

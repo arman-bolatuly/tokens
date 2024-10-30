@@ -1,161 +1,35 @@
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useForm } from 'react-hook-form'
-import { useMutation, useQuery } from '@tanstack/react-query'
-import { Text, Title, TextInput, Button, Loader } from '@mantine/core'
-import { Player } from '@lottiefiles/react-lottie-player'
-import { useSnapshot } from 'valtio'
+import { useState } from 'react'
+import { Tabs } from '@mantine/core'
 
-import { getAccount, registration } from '../../apiService/auth'
-import { store } from '../../store'
+import User from './User'
+import Admin from './Admin'
+import classes from './Tabs.module.css'
 
 const Registration = () => {
-  const navigate = useNavigate()
-
-  const { isAuth } = useSnapshot(store.auth)
-
-  const {
-    register,
-    setFocus,
-    formState: { errors },
-    handleSubmit,
-  } = useForm<any>()
-
-  const { data: accData, isLoading: isAccLoading } = useQuery({
-    queryKey: ['me'],
-    queryFn: getAccount,
-    enabled: !isAuth,
-    retry: false,
-  })
-
-  useEffect(() => {
-    if (!isAccLoading && accData) {
-      store.auth.isAuth = true
-      navigate('/')
-    }
-  }, [accData, isAccLoading, navigate])
-
-  const mutation = useMutation({
-    mutationFn: (data: any) => {
-      return registration(data)
-    },
-    onSuccess: (data: any) => {
-      localStorage.setItem('token', data.data.token)
-      store.auth.isAuth = true
-      navigate('/')
-    },
-    onError: (err: any) => {
-      console.log(err)
-    },
-  })
-
-  const onSubmit = (data: any) => mutation.mutate(data)
-
-  useEffect(() => {
-    setFocus('email')
-  }, [setFocus])
-
-  if (isAccLoading) {
-    return (
-      <div className="flex justify-center my-40">
-        <Loader type="dots" size={35} />
-      </div>
-    )
-  }
+  const [activeTab, setActiveTab] = useState<string | null>('user')
 
   return (
-    <div className="flex flex-col justify-between items-center h-screen p-10 bg-[#0d1726]">
-      <div className="absolute right-20 top-[25%]">
-        <Player
-          autoplay
-          loop
-          src="https:lottie.host/56aa837c-62ce-47c8-adbc-fa1d1b1fec77/r9CS33sthi.json"
-          style={{ height: '500px', width: '500px' }}
-        />
-      </div>
+    <Tabs
+      variant="unstyled"
+      classNames={classes}
+      value={activeTab}
+      onChange={setActiveTab}
+    >
+      <Tabs.List grow mb={100}>
+        <Tabs.Tab value="user" className={`${activeTab === ''}`}>
+          User registration
+        </Tabs.Tab>
+        <Tabs.Tab value="admin">Admin registration</Tabs.Tab>
+      </Tabs.List>
 
-      <Title order={2} mb={16} c="#FFFFFF">
-        TokenX
-      </Title>
+      <Tabs.Panel value="user" pt="xs">
+        <User />
+      </Tabs.Panel>
 
-      <div className="flex flex-col space-y-6 w-[400px] bg-[#FFFFFF] py-6 px-4 rounded-xl">
-        <Title order={4} className="text-center">
-          Регистрация
-        </Title>
-
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-6"
-        >
-          <TextInput
-            label="Email"
-            {...register('email', {
-              required: 'Логин не должен быть пустым',
-            })}
-            placeholder="Email"
-            error={errors?.email && `${errors?.email?.message}`}
-          />
-
-          {/* <TextInput
-            label="Имя пользователя"
-            {...register('password', {
-              required: 'Пароль не должен быть пустым',
-            })}
-            placeholder="Имя пользователя"
-          /> */}
-
-          <TextInput
-            label="Пароль"
-            {...register('password', {
-              required: 'Пароль не должен быть пустым',
-            })}
-            placeholder="Создать пароль"
-            type="Password"
-            error={errors?.password && `${errors?.password?.message}`}
-          />
-
-          <TextInput
-            label="Подтвердите пароль"
-            {...register('password2', {
-              required: 'Пароль не должен быть пустым',
-            })}
-            placeholder="Подтвердите пароль"
-            type="Password"
-            error={errors?.password && `${errors?.password?.message}`}
-          />
-
-          {/* <Select
-            label="Страна проживания"
-            placeholder="Выбрать"
-            data={[
-              { value: 'usa', label: 'United States' },
-              { value: 'uk', label: 'United Kingdom' },
-              { value: 'france', label: 'France' },
-              { value: 'germany', label: 'Germany' },
-              { value: 'russia', label: 'Russia' },
-              { value: 'china', label: 'China' },
-            ]}
-          /> */}
-
-          <Button type="submit">Регистрация</Button>
-
-          <div className="flex items-center">
-            <Text className="bodyDemibold mr-4">Already have an account?</Text>
-
-            <Text
-              onClick={() => navigate('/login')}
-              className="hover:text-[#1E86FF] bodyDemibold cursor-pointer"
-            >
-              Войти
-            </Text>
-          </div>
-        </form>
-      </div>
-
-      <Text mt={24} c="green">
-        © 2024 TokenX. All rights reserved.
-      </Text>
-    </div>
+      <Tabs.Panel value="admin" pt="xs">
+        <Admin />
+      </Tabs.Panel>
+    </Tabs>
   )
 }
 

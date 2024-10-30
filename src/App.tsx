@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 
 import { store } from './store'
-import { getAccount } from './apiService/auth'
+import { getAccount } from './apiService/authService'
 import Layouts from './components/layouts/Layouts'
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
   const { isAuth } = useSnapshot(store.auth)
 
   const { isLoading, data } = useQuery({
-    queryKey: ['me'],
+    queryKey: ['adm/me'],
     queryFn: getAccount,
     enabled: !isAuth,
     retry: false,
