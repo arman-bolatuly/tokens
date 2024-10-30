@@ -1,6 +1,5 @@
 import type { RouteObject } from 'react-router-dom'
 
-// import Home from '../pages/Home'
 import Cases from '../pages/Cases'
 import Trade from '../pages/Trade'
 import Tokens from '../pages/Tokens'
@@ -9,15 +8,12 @@ import Profile from '../pages/Profile'
 import Investors from '../pages/Investors'
 import Portfolio from '../pages/Portfolio'
 import AdminBanks from '../pages/AdminBank'
+import Registration from '../pages/Registration'
 import TokenList from '../pages/Tokens/TokenList'
 import AdminsIssuers from '../pages/AdminsIssuers'
 import IssuerRegistration from '../pages/IssuerRegistration'
 
 export const privateRoutes: Array<RouteObject> = [
-  // {
-  //   path: '/',
-  //   Component: Home,
-  // },
   {
     path: '/profile',
     Component: Profile,
@@ -61,5 +57,9 @@ export const privateRoutes: Array<RouteObject> = [
   {
     path: '/portfolio',
     Component: Portfolio,
+  },
+  {
+    path: '/registration',
+    Component: Registration,
   },
 ]

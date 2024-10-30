@@ -6,8 +6,13 @@ import { Player } from '@lottiefiles/react-lottie-player'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { Text, Title, TextInput, Button, Loader } from '@mantine/core'
 
-import { getAccount, login } from '../../apiService/auth'
+import {
+  adminLogin,
+  getAccount,
+  // login
+} from '../../apiService/authService'
 import { store } from '../../store'
+import { showNotification } from '@mantine/notifications'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -22,7 +27,7 @@ const Login = () => {
   } = useForm<any>()
 
   const { data: accData, isLoading: isAccLoading } = useQuery({
-    queryKey: ['me'],
+    queryKey: ['adm/me'],
     queryFn: getAccount,
     enabled: !isAuth,
     retry: false,
@@ -37,7 +42,8 @@ const Login = () => {
 
   const mutation = useMutation({
     mutationFn: (data: any) => {
-      return login(data)
+      // return login(data)
+      return adminLogin(data)
     },
     onSuccess: (data: any) => {
       localStorage.setItem('token', data.data.token)
@@ -45,7 +51,11 @@ const Login = () => {
       navigate('/')
     },
     onError: (err: any) => {
-      console.log(err)
+      showNotification({
+        title: 'Ошибка',
+        message: err?.response?.data?.message,
+        color: 'red',
+      })
     },
   })
 
@@ -89,13 +99,22 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col space-y-6"
         >
-          <TextInput
+          {/* <TextInput
             label="Email"
             {...register('email', {
               required: 'Логин не должен быть пустым',
             })}
             placeholder="Email"
             error={errors?.email && `${errors?.email?.message}`}
+          /> */}
+
+          <TextInput
+            label="Username"
+            {...register('username', {
+              required: 'Логин не должен быть пустым',
+            })}
+            placeholder="Username"
+            error={errors?.username && `${errors?.username?.message}`}
           />
 
           <TextInput

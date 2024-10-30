@@ -1,5 +1,4 @@
 import axios from 'axios'
-// import { apiService } from '.'
 
 const coinUrl = 'https://openapiv1.coinstats.app'
 
