@@ -1,4 +1,4 @@
-import { Title, Text } from '@mantine/core'
+import { Title, Text, Spoiler } from '@mantine/core'
 import { Player } from '@lottiefiles/react-lottie-player'
 import { TypeAnimation } from 'react-type-animation'
 import { motion } from 'framer-motion'
@@ -49,12 +49,16 @@ const Cryptocurrencies = () => {
                 <Title order={6} className="text-center mb-2">
                   Что такое криптовалюта?
                 </Title>
-                <Text className="text-[#9DA5B2] bodyLongTextDemibold text-center">
-                  Криптовалюта — это вид цифровой или виртуальной валюты,
-                  который использует криптографию для обеспечения безопасности.
-                  Она работает в децентрализованных сетях, использующих
-                  технологию блокчейн.
-                </Text>
+                <Spoiler className="text-[#9DA5B2] bodyLongTextDemibold text-center"
+                   maxHeight={30}
+                   showLabel="Show more"
+                   hideLabel="Hide"
+                 >
+                    Криптовалюта — это вид цифровой или виртуальной валюты,
+                    который использует криптографию для обеспечения безопасности.
+                    Она работает в децентрализованных сетях, использующих
+                    технологию блокчейн.
+                </Spoiler>
               </div>
 
               <TypeAnimation
@@ -108,7 +112,7 @@ const Cryptocurrencies = () => {
             autoplay
             loop
             src="https://lottie.host/13a2bcf1-c1e6-41d0-8b27-de37405dd3b1/awBQyEEOl4.json"
-            style={{ height: '500px', width: '500px' }}
+            style={{ height: '400px', width: '400px' }}
           />
         </motion.div>
       </div>

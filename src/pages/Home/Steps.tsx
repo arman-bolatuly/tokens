@@ -43,7 +43,7 @@ const Steps = () => {
                 autoplay
                 loop
                 src="https://lottie.host/74fdb452-ef2f-43a2-bbc8-6bff15141060/bYpN2vEVUw.json"
-                style={{ height: '150px', width: '150px' }}
+                style={{ height: '100px', width: '100px' }}
               />
 
               <Text className="text-[#9DA5B2] bodyLongTextDemibold">
@@ -70,7 +70,7 @@ const Steps = () => {
                 autoplay
                 loop
                 src="https://lottie.host/001845a5-bfc5-414d-b9d9-ea9317ae2c5d/aM2FZuXy6P.json"
-                style={{ height: '150px', width: '150px' }}
+                style={{ height: '100px', width: '100px' }}
               />
 
               <Text className="text-[#9DA5B2] bodyLongTextDemibold">
@@ -97,7 +97,7 @@ const Steps = () => {
                 autoplay
                 loop
                 src="https://lottie.host/4b9b3b6c-6d0d-4955-b3b4-09497e08a438/Gd1rkabtuR.json"
-                style={{ height: '150px', width: '150px' }}
+                style={{ height: '100px', width: '100px' }}
               />
 
               <Text className="text-[#9DA5B2] bodyLongTextDemibold mt-6 mb-12">

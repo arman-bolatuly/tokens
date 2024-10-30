@@ -1,4 +1,4 @@
-import { SimpleGrid, Button, Title, Text } from '@mantine/core'
+import { SimpleGrid, Title, Text, Spoiler } from '@mantine/core'
 import { motion } from 'framer-motion'
 
 import { fadeIn } from '../../animationVariants'
@@ -35,23 +35,26 @@ const Tokenize = () => {
         >
           <div>
             <div className="bg-white p-6 rounded-lg text-center flex flex-col">
-              <Title order={3} className="text-center mb-6">
-                Токенизация недвижимости
+            <Title order={3} className="text-center">
+                Токенизация стартапов
               </Title>
 
               <Player
                 autoplay
                 loop
-                src="https://lottie.host/10dcd756-eea3-4a4b-b440-9c3f406517dd/olTs8o9nFu.json"
-                style={{ height: '150px', width: '150px' }}
+                src="https://lottie.host/b4016b15-3b60-455e-b6c8-8aef0b7d5b91/jakTIItltn.json"
+                style={{ height: '100px', width: '100px' }}
               />
 
-              <Text className="text-[#9DA5B2] bodyLongTextDemibold mt-6 mb-12">
-                Управление недвижимостью, продажа недвижимости, освоение
-                земельных участков, гостиничный бизнес, строительство или любая
-                другая вертикаль.
-              </Text>
-              <Button variant="default">Узнать больше</Button>
+              <Spoiler className="text-[#9DA5B2] bodyLongTextDemibold"
+                maxHeight={30}
+                showLabel="Show more"
+                hideLabel="Hide"
+              >
+                  Программное обеспечение как услуга, электронная коммерция,
+                  технологии, здравоохранение, Web3, торговые площадки,
+                  возобновляемая энергетика или любая другая вертикаль.
+              </Spoiler>
             </div>
           </div>
         </motion.div>
@@ -64,23 +67,26 @@ const Tokenize = () => {
         >
           <div>
             <div className="bg-white p-6 rounded-lg text-center flex flex-col space-y-6">
-              <Title order={3} className="text-center">
-                Токенизация стартапов
+            <Title order={3} className="text-center mb-6">
+                Токенизация недвижимости
               </Title>
 
               <Player
                 autoplay
                 loop
-                src="https://lottie.host/b4016b15-3b60-455e-b6c8-8aef0b7d5b91/jakTIItltn.json"
-                style={{ height: '150px', width: '150px' }}
+                src="https://lottie.host/10dcd756-eea3-4a4b-b440-9c3f406517dd/olTs8o9nFu.json"
+                style={{ height: '100px', width: '100px' }}
               />
 
-              <Text className="text-[#9DA5B2] bodyLongTextDemibold">
-                Программное обеспечение как услуга, электронная коммерция,
-                технологии, здравоохранение, Web3, торговые площадки,
-                возобновляемая энергетика или любая другая вертикаль.
-              </Text>
-              <Button variant="default">Узнать больше</Button>
+              <Spoiler className="text-[#9DA5B2] bodyLongTextDemibold"
+                maxHeight={30}
+                showLabel="Show more"
+                hideLabel="Hide"
+              >
+                  Управление недвижимостью, продажа недвижимости, освоение
+                  земельных участков, гостиничный бизнес, строительство или любая
+                  другая вертикаль.
+              </Spoiler>
             </div>
           </div>
         </motion.div>
@@ -101,18 +107,19 @@ const Tokenize = () => {
                 autoplay
                 loop
                 src="https://lottie.host/a4914292-f666-4af6-a2c6-119d8aba1b8a/R3UdrrgYdv.json"
-                style={{ height: '150px', width: '150px' }}
+                style={{ height: '100px', width: '100px' }}
               />
 
-              <Text className="text-[#9DA5B2] bodyLongTextDemibold mt-6 mb-12">
-                Рестораны, отели, спортзалы, супермаркеты, магазины или любые
-                другие франшизы, которые вы только можете себе представить,
-                могут быть токенизированы.
-              </Text>
+              <Spoiler className="text-[#9DA5B2] bodyLongTextDemibold"
+                maxHeight={30}
+                showLabel="Show more"
+                hideLabel="Hide"
+              >
+                  Рестораны, отели, спортзалы, супермаркеты, магазины или любые
+                  другие франшизы, которые вы только можете себе представить,
+                  могут быть токенизированы.
+              </Spoiler>
 
-              <Button variant="default" className="mt-auto">
-                Узнать больше
-              </Button>
             </div>
           </div>
         </motion.div>

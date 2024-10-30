@@ -1,4 +1,4 @@
-import { Title, Text } from '@mantine/core'
+import { Title, Text, Spoiler } from '@mantine/core'
 import { Player } from '@lottiefiles/react-lottie-player'
 import { TypeAnimation } from 'react-type-animation'
 import { motion } from 'framer-motion'
@@ -40,7 +40,7 @@ const Blockchain = () => {
             autoplay
             loop
             src="https://lottie.host/09bbeb85-c060-4882-93c2-8f8a381b522f/t3H3CdzSDF.json"
-            style={{ height: '600px', width: '600px' }}
+            style={{ height: '400px', width: '400px' }}
           />
         </motion.div>
 
@@ -61,12 +61,16 @@ const Blockchain = () => {
                 <Title order={6} className="text-center mb-2">
                   Что такое блокчейн?
                 </Title>
-                <Text className="text-[#9DA5B2] bodyLongTextDemibold text-center">
+                <Spoiler className="text-[#9DA5B2] text-center"
+                  maxHeight={30}
+                  showLabel="Show more"
+                  hideLabel="Hide"
+                >
                   Блокчейн — это децентрализованная база данных, которая хранит
                   информацию в виде блоков, связанных друг с другом. Каждый блок
                   содержит данные и уникальный код (хэш), который делает его
                   неизменяемым после создания.
-                </Text>
+                </Spoiler>
               </div>
 
               <TypeAnimation
