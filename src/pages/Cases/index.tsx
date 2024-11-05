@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useDisclosure } from '@mantine/hooks'
 import { useQuery } from '@tanstack/react-query'
-import { IconSearch, IconInfoCircle } from '@tabler/icons-react'
+import { IconSearch, IconInfoCircle, IconTrash } from '@tabler/icons-react'
 import { Title, Button, Table, Input, Select, ActionIcon } from '@mantine/core'
 import debounce from 'lodash.debounce'
 
@@ -92,8 +92,20 @@ const Cases = () => {
                         open()
                         setCurrCase(d)
                       }}
+                      variant="transparent"
                     >
                       <IconInfoCircle />
+                    </ActionIcon>
+
+                    <ActionIcon
+                      // onClick={() => {
+                      //   open()
+                      //   setCurrCase(d)
+                      // }}
+                      variant="transparent"
+                      className="text-red-500 hover:text-red-600"
+                    >
+                      <IconTrash />
                     </ActionIcon>
                   </Table.Td>
                 </Table.Tr>
