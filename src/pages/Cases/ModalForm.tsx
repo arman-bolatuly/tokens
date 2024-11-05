@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useMutation } from '@tanstack/react-query'
-import { Button, Modal, TextInput } from '@mantine/core'
+import { Button, Modal, TextInput, FocusTrap } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
 
 import { queryClient } from '../../../queryClient'
@@ -10,7 +10,6 @@ import { createCase, updateCase } from '../../apiService/casesService'
 const CreateModal = ({ opened, close, currCase }: any) => {
   const {
     register,
-    setFocus,
     formState: { errors },
     handleSubmit,
     reset,
@@ -51,10 +50,6 @@ const CreateModal = ({ opened, close, currCase }: any) => {
   }
 
   useEffect(() => {
-    setFocus('case_name')
-  }, [setFocus])
-
-  useEffect(() => {
     reset({
       case_name: currCase?.case_name || '',
     })
@@ -66,6 +61,7 @@ const CreateModal = ({ opened, close, currCase }: any) => {
       onClose={close}
       title={currCase?.id ? 'Edit Case' : 'Create Case'}
     >
+      <FocusTrap.InitialFocus />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col space-y-6"
@@ -75,6 +71,7 @@ const CreateModal = ({ opened, close, currCase }: any) => {
           label="Case name"
           {...register('case_name', { required: 'Case name is required' })}
           error={errors?.case_name && `${errors?.case_name?.message}`}
+          data-autofocus
         />
 
         <Button type="submit" className="mt-4" disabled={mutation.isPending}>

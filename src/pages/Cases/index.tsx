@@ -1,14 +1,17 @@
 import { useMemo, useState } from 'react'
 import { useDisclosure } from '@mantine/hooks'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { IconSearch, IconInfoCircle, IconTrash } from '@tabler/icons-react'
 import { Title, Button, Table, Input, Select, ActionIcon } from '@mantine/core'
 import debounce from 'lodash.debounce'
 
 import CreateModal from './ModalForm'
 import TableSkeleton from '../../components/ui/TableSkeleton'
-import { getCases } from '../../apiService/casesService'
+import { deleteCase, getCases } from '../../apiService/casesService'
 import { CustomPagination } from '../../components/ui/CustomPagination'
+import CustomDeleteModal from '../../components/ui/CustomDeleteModal'
+import { queryClient } from '../../../queryClient'
+import { showNotification } from '@mantine/notifications'
 
 const Cases = () => {
   const [activePage, setActivePage] = useState(1)
@@ -18,6 +21,11 @@ const Cases = () => {
   const [search, setSearch] = useState<string>('')
 
   const [opened, { open, close }] = useDisclosure(false)
+
+  const [
+    openedDeleteModal,
+    { open: openDeleteModal, close: closeDeleteModal },
+  ] = useDisclosure(false)
 
   const [currCase, setCurrCase] = useState<any>(null)
 
@@ -39,6 +47,32 @@ const Cases = () => {
       setActivePage(1)
     }, 1000)
   }, [])
+
+  const deleteCaseMutation = useMutation({
+    mutationFn: () => {
+      return deleteCase(currCase.id)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['adm/cases'] as const,
+      })
+      showNotification({
+        title: 'Deleted',
+        message: 'Case has been deleted successfully',
+        color: 'green',
+      })
+      closeDeleteModal()
+      setCurrCase(null)
+    },
+    onError: (err: any) => {
+      console.log('err: ', err)
+      showNotification({
+        title: 'Error',
+        message: err?.response?.data?.message,
+        color: 'red',
+      })
+    },
+  })
 
   if (isError) {
     return <div>Error</div>
@@ -98,10 +132,10 @@ const Cases = () => {
                     </ActionIcon>
 
                     <ActionIcon
-                      // onClick={() => {
-                      //   open()
-                      //   setCurrCase(d)
-                      // }}
+                      onClick={() => {
+                        openDeleteModal()
+                        setCurrCase(d)
+                      }}
                       variant="transparent"
                       className="text-red-500 hover:text-red-600"
                     >
@@ -143,6 +177,15 @@ const Cases = () => {
       )}
 
       <CreateModal opened={opened} close={close} currCase={currCase} />
+
+      {openedDeleteModal && (
+        <CustomDeleteModal
+          opened={openedDeleteModal}
+          close={closeDeleteModal}
+          title="Delete Case"
+          deleteFunction={() => deleteCaseMutation.mutate()}
+        />
+      )}
     </div>
   )
 }

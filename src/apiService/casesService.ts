@@ -7,6 +7,8 @@ const casesService = {
     apiService.put(`adm/cases/${bodyData?.id}`, bodyData),
 
   getCases: (params: any) => apiService.get('adm/cases', { params }),
+
+  deleteCase: (id: string) => apiService.delete(`adm/cases/${id}`),
 }
 
-export const { getCases, createCase, updateCase } = casesService
+export const { getCases, createCase, updateCase, deleteCase } = casesService
