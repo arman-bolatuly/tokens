@@ -1,11 +1,12 @@
 import { apiService } from '.'
 
 const casesService = {
-  // registration: (bodyData: any) => apiService.post('register', bodyData),
+  createCase: (bodyData: any) => apiService.post('adm/cases', bodyData),
 
-  createCase: (bodyData: any) => apiService.post('adm/cases/create', bodyData),
+  updateCase: (bodyData: any) =>
+    apiService.put(`adm/cases/${bodyData?.id}`, bodyData),
 
   getCases: (params: any) => apiService.get('adm/cases', { params }),
 }
 
-export const { getCases, createCase } = casesService
+export const { getCases, createCase, updateCase } = casesService

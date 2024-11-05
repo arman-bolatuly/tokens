@@ -1,20 +1,14 @@
-import { Title, Button, Table, Input } from '@mantine/core'
-import { useQuery } from '@tanstack/react-query'
 import { useMemo, useState } from 'react'
-import { IconSearch } from '@tabler/icons-react'
 import { useDisclosure } from '@mantine/hooks'
+import { useQuery } from '@tanstack/react-query'
+import { IconSearch, IconInfoCircle } from '@tabler/icons-react'
+import { Title, Button, Table, Input, Select, ActionIcon } from '@mantine/core'
 import debounce from 'lodash.debounce'
 
-import CreateModal from './CreateModal'
+import CreateModal from './ModalForm'
+import TableSkeleton from '../../components/ui/TableSkeleton'
 import { getCases } from '../../apiService/casesService'
-
-const elements = [
-  { position: 6, mass: 12.011, symbol: 'C', name: 'Carbon' },
-  { position: 7, mass: 14.007, symbol: 'N', name: 'Nitrogen' },
-  { position: 39, mass: 88.906, symbol: 'Y', name: 'Yttrium' },
-  { position: 56, mass: 137.33, symbol: 'Ba', name: 'Barium' },
-  { position: 58, mass: 140.12, symbol: 'Ce', name: 'Cerium' },
-]
+import { CustomPagination } from '../../components/ui/CustomPagination'
 
 const Cases = () => {
   const [activePage, setActivePage] = useState(1)
@@ -24,6 +18,8 @@ const Cases = () => {
   const [search, setSearch] = useState<string>('')
 
   const [opened, { open, close }] = useDisclosure(false)
+
+  const [currCase, setCurrCase] = useState<any>(null)
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['adm/cases', search, activePage, perPage],
@@ -35,7 +31,7 @@ const Cases = () => {
       }),
   })
 
-  console.log('data: ', data)
+  const totalPage = Math.ceil((data?.data?.length || 0) / Number(perPage))
 
   const debouncedSearch = useMemo(() => {
     return debounce((e: any) => {
@@ -43,6 +39,10 @@ const Cases = () => {
       setActivePage(1)
     }, 1000)
   }, [])
+
+  if (isError) {
+    return <div>Error</div>
+  }
 
   return (
     <div className="flex flex-col space-y-6">
@@ -59,31 +59,78 @@ const Cases = () => {
           onChange={debouncedSearch}
         />
 
-        <Button onClick={open}>Add</Button>
+        <Button
+          onClick={() => {
+            open()
+            setCurrCase(null)
+          }}
+        >
+          Add
+        </Button>
       </div>
 
       <div className="overflow-auto border-solid border-[#EBEDF0] rounded-lg text-[#FFFFFF]">
         <Table>
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>Element position</Table.Th>
-              <Table.Th>Element name</Table.Th>
+              <Table.Th>Case Id</Table.Th>
+              <Table.Th>Case name</Table.Th>
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>
-          <Table.Tbody>
-            {elements.map((element: any) => (
-              <Table.Tr key={element.name}>
-                <Table.Td>{element.position}</Table.Td>
-                <Table.Td>{element.name}</Table.Td>
-                <Table.Td>{element.symbol}</Table.Td>
-              </Table.Tr>
-            ))}
-          </Table.Tbody>
+          {isLoading ? (
+            <TableSkeleton rowsNum={Number(perPage)} columnsNum={3} />
+          ) : (
+            <Table.Tbody>
+              {data?.data?.map((d: any) => (
+                <Table.Tr key={d.name}>
+                  <Table.Td>{d.id}</Table.Td>
+                  <Table.Td>{d.case_name}</Table.Td>
+                  <Table.Td className="text-end">
+                    <ActionIcon
+                      onClick={() => {
+                        open()
+                        setCurrCase(d)
+                      }}
+                    >
+                      <IconInfoCircle />
+                    </ActionIcon>
+                  </Table.Td>
+                </Table.Tr>
+              ))}
+            </Table.Tbody>
+          )}
         </Table>
       </div>
 
-      <CreateModal opened={opened} close={close} />
+      {data && (
+        <div className="flex">
+          <Select
+            value={perPage}
+            onChange={(value: any) => {
+              setPerPage(value)
+              setActivePage(1)
+            }}
+            data={[
+              { value: '5', label: 'Показывать по: 5' },
+              { value: '10', label: 'Показывать по: 10' },
+              { value: '15', label: 'Показывать по: 15' },
+              { value: '20', label: 'Показывать по: 20' },
+              { value: '25', label: 'Показывать по: 25' },
+            ]}
+            allowDeselect={false}
+            w={200}
+          />
+
+          <CustomPagination
+            value={activePage}
+            onChange={setActivePage}
+            total={totalPage}
+          />
+        </div>
+      )}
+
+      <CreateModal opened={opened} close={close} currCase={currCase} />
     </div>
   )
 }
