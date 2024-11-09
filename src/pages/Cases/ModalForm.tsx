@@ -53,7 +53,7 @@ const CreateModal = ({ opened, close, currCase }: any) => {
     reset({
       case_name: currCase?.case_name || '',
     })
-  }, [currCase, reset])
+  }, [currCase?.id, reset])
 
   return (
     <Modal

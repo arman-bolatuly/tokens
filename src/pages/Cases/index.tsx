@@ -1,19 +1,22 @@
 import { useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useDisclosure } from '@mantine/hooks'
+import { showNotification } from '@mantine/notifications'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { IconSearch, IconInfoCircle, IconTrash } from '@tabler/icons-react'
 import { Title, Button, Table, Input, Select, ActionIcon } from '@mantine/core'
 import debounce from 'lodash.debounce'
 
-import CreateModal from './ModalForm'
-import TableSkeleton from '../../components/ui/TableSkeleton'
+import { queryClient } from '../../../queryClient'
 import { deleteCase, getCases } from '../../apiService/casesService'
 import { CustomPagination } from '../../components/ui/CustomPagination'
+import CreateModal from './ModalForm'
+import TableSkeleton from '../../components/ui/TableSkeleton'
 import CustomDeleteModal from '../../components/ui/CustomDeleteModal'
-import { queryClient } from '../../../queryClient'
-import { showNotification } from '@mantine/notifications'
 
 const Cases = () => {
+  const navigate = useNavigate()
+
   const [activePage, setActivePage] = useState(1)
 
   const [perPage, setPerPage] = useState<string | null>('10')
@@ -33,13 +36,13 @@ const Cases = () => {
     queryKey: ['adm/cases', search, activePage, perPage],
     queryFn: () =>
       getCases({
-        name: search,
+        search: search,
         page: activePage,
         limit: perPage,
       }),
   })
 
-  const totalPage = Math.ceil((data?.data?.length || 0) / Number(perPage))
+  const totalPage = Math.ceil((data?.data?.total || 0) / Number(perPage))
 
   const debouncedSearch = useMemo(() => {
     return debounce((e: any) => {
@@ -109,6 +112,7 @@ const Cases = () => {
             <Table.Tr>
               <Table.Th>Case Id</Table.Th>
               <Table.Th>Case name</Table.Th>
+              <Table.Th className="text-end">Token List</Table.Th>
               <Table.Th></Table.Th>
             </Table.Tr>
           </Table.Thead>
@@ -116,10 +120,20 @@ const Cases = () => {
             <TableSkeleton rowsNum={Number(perPage)} columnsNum={3} />
           ) : (
             <Table.Tbody>
-              {data?.data?.map((d: any) => (
+              {data?.data?.data?.map((d: any) => (
                 <Table.Tr key={d.name}>
                   <Table.Td>{d.id}</Table.Td>
                   <Table.Td>{d.case_name}</Table.Td>
+                  <Table.Td className="text-end">
+                    <Button
+                      variant="light"
+                      onClick={() => {
+                        navigate(`${d.id}`)
+                      }}
+                    >
+                      Token List
+                    </Button>
+                  </Table.Td>
                   <Table.Td className="text-end">
                     <ActionIcon
                       onClick={() => {

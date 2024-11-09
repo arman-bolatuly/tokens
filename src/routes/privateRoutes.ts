@@ -2,16 +2,15 @@ import type { RouteObject } from 'react-router-dom'
 
 import Cases from '../pages/Cases'
 import Trade from '../pages/Trade'
-import Tokens from '../pages/Tokens'
 import Wallets from '../pages/Wallets'
 import Profile from '../pages/Profile'
 import Investors from '../pages/Investors'
 import Portfolio from '../pages/Portfolio'
 import AdminBanks from '../pages/AdminBank'
 import Registration from '../pages/Registration'
-import TokenList from '../pages/Tokens/TokenList'
 import AdminsIssuers from '../pages/AdminsIssuers'
 import IssuerRegistration from '../pages/IssuerRegistration'
+import TokenList from '../pages/Tokens'
 
 export const privateRoutes: Array<RouteObject> = [
   {
@@ -19,11 +18,7 @@ export const privateRoutes: Array<RouteObject> = [
     Component: Profile,
   },
   {
-    path: '/tokens',
-    Component: Tokens,
-  },
-  {
-    path: 'tokens/cases/:caseId',
+    path: '/cases/:caseId',
     Component: TokenList,
   },
   {
