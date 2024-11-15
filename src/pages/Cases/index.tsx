@@ -117,7 +117,7 @@ const Cases = () => {
             </Table.Tr>
           </Table.Thead>
           {isLoading ? (
-            <TableSkeleton rowsNum={Number(perPage)} columnsNum={3} />
+            <TableSkeleton rowsNum={Number(perPage)} columnsNum={4} />
           ) : (
             <Table.Tbody>
               {data?.data?.data?.map((d: any) => (
