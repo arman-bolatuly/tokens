@@ -1,6 +1,5 @@
-import { SimpleGrid, Title, Text, Spoiler } from '@mantine/core'
+import { SimpleGrid, Title, Text } from '@mantine/core'
 import { motion } from 'framer-motion'
-import { Player } from '@lottiefiles/react-lottie-player'
 import CountUp from 'react-countup'
 
 import { fadeIn } from '../../animationVariants'
@@ -39,23 +38,14 @@ export default function Future() {
               <CountUp end={120} duration={3} delay={1} /> триллионов $
             </Title>
 
-            <Player
-              autoplay
-              loop
-              src="https://lottie.host/10dcd756-eea3-4a4b-b440-9c3f406517dd/olTs8o9nFu.json"
-              style={{ height: '100px', width: '100px' }}
-            />
 
-            <Spoiler className="text-[#9DA5B2] bodyLongTextDemibold text-center"
-              maxHeight={30}
-              showLabel="Show more"
-              hideLabel="Hide"
+            <Text className="text-[#9DA5B2] bodyLongTextDemibold text-center"
              >
                 В настоящее время в обращении находится около 120 миллиардов
                 долларов токенизированных денег, и многие компании,
                 предоставляющие финансовые услуги, значительно расширили свои
                 команды и возможности в области цифровых активов.
-            </Spoiler>
+            </Text>
           </div>
         </motion.div>
 
@@ -70,21 +60,12 @@ export default function Future() {
               Рост x<CountUp end={80} duration={3} delay={1} />
             </Title>
 
-            <Player
-              autoplay
-              loop
-              src="https://lottie.host/b4016b15-3b60-455e-b6c8-8aef0b7d5b91/jakTIItltn.json"
-              style={{ height: '100px', width: '100px' }}
-            />
 
-            <Spoiler className="text-[#9DA5B2] bodyLongTextDemibold text-center"
-              maxHeight={30}
-              showLabel="Show more"
-              hideLabel="Hide"
+            <Text className="text-[#9DA5B2] bodyLongTextDemibold text-center"
              >
                 Ожидается, что токенизация вырастет в 80 раз на частных рынках и
                 достигнет почти 4 триллионов долларов США к 2030 году.
-            </Spoiler>
+            </Text>
           </div>
         </motion.div>
 
@@ -100,22 +81,13 @@ export default function Future() {
               <CountUp end={5} duration={3} delay={1} /> триллионов $
             </Title>
 
-            <Player
-              autoplay
-              loop
-              src="https://lottie.host/a4914292-f666-4af6-a2c6-119d8aba1b8a/R3UdrrgYdv.json"
-              style={{ height: '100px', width: '100px' }}
-            />
 
-            <Spoiler className="text-[#9DA5B2] bodyLongTextDemibold text-center"
-              maxHeight={30}
-              showLabel="Show more"
-              hideLabel="Hide"
+            <Text className="text-[#9DA5B2] bodyLongTextDemibold text-center"
              >
                 Аналитики прогнозируют, что к 2030 году может быть выпущено
                 токенизированных цифровых ценных бумаг на сумму от 4 до 5
                 триллионов долларов США.
-            </Spoiler>
+            </Text>
           </div>
         </motion.div>
       </SimpleGrid>

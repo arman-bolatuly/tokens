@@ -1,5 +1,4 @@
-import { Title, Text, SimpleGrid, Spoiler } from '@mantine/core'
-import { Player } from '@lottiefiles/react-lottie-player'
+import { Title, Text, SimpleGrid } from '@mantine/core'
 import { motion } from 'framer-motion'
 
 import { fadeIn } from '../../animationVariants'
@@ -42,18 +41,8 @@ const First = () => {
               Текущие тенденции и рост рынка
             </Title>
 
-            <Player
-              autoplay
-              loop
-              src="https://lottie.host/0e96aee9-d9c4-4077-957e-b2794048b6f9/9izyAC9i5q.json"
-              style={{ height: '110px', width: '110px' }}
-            />
 
-            <Spoiler
-              className="text-[#9DA5B2] bodyLongTextDemibold"
-              maxHeight={30}
-              showLabel="Show more"
-              hideLabel="Hide"
+            <Text className="text-[#9DA5B2] bodyLongTextDemibold"
             >
               STO привлекают внимание регуляторов, поскольку они предлагают
               более безопасную альтернативу ICO. Прозрачность и соблюдение
@@ -61,7 +50,7 @@ const First = () => {
               набирают популярность в таких регионах, как США, Европа и
               Азиатско-Тихоокеанский регион, где существуют четкие правила
               регулирования.
-            </Spoiler>
+            </Text>
           </div>
         </motion.div>
 
@@ -76,24 +65,15 @@ const First = () => {
               Объем рынка STO в 2023 году
             </Title>
 
-            <Player
-              autoplay
-              loop
-              src="https://lottie.host/6b77a5da-32d0-4112-a304-028e0e941105/1YMVpnE0UF.json"
-              style={{ height: '110px', width: '110px' }}
-            />
+            
 
-            <Spoiler
-              className="text-[#9DA5B2] bodyLongTextDemibold"
-              maxHeight={30}
-              showLabel="Show more"
-              hideLabel="Hide"
+            <Text className="text-[#9DA5B2] bodyLongTextDemibold"
             >
               Оценивался в $3,5 млрд и продолжает расти благодаря новым
               регуляторным стандартам и принятию технологии токенизации активов.
               Ожидается, что рынок токенизации активов вырастет до $1,5 трлн в
               ближайшие 6 лет.
-            </Spoiler>
+            </Text>
 
             {/* <div className="flex flex-col space-y-4 mt-6">
               <Title order={3} className="text-center">
@@ -123,18 +103,9 @@ const First = () => {
               Перспективы развития
             </Title>
 
-            <Player
-              autoplay
-              loop
-              src="https://lottie.host/ca4ae6c9-c334-4490-a8b0-8d1cbd8dea84/RkyoTW7F3e.json"
-              style={{ height: '110px', width: '110px' }}
-            />
+            
 
-            <Spoiler
-              className="text-[#9DA5B2] bodyLongTextDemibold"
-              maxHeight={30}
-              showLabel="Show more"
-              hideLabel="Hide"
+            <Text className="text-[#9DA5B2] bodyLongTextDemibold"
             >
               Институциональные инвесторы заинтересованы в STO из-за их
               безопасности, обеспеченности реальными активами, доходами,
@@ -142,7 +113,7 @@ const First = () => {
               снижает риски мошенничества. По мере развития STO будет расти
               число вторичных рынков для торговли security токенами, что
               увеличит их ликвидность.
-            </Spoiler>
+            </Text>
           </div>
         </motion.div>
       </SimpleGrid>
